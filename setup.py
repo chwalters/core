@@ -47,9 +47,6 @@ setup(
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
-        'Topic :: Automation',
-        'Topic :: Multimedia :: Sound/Audio :: Speech',
-        'Topic :: Multimedia :: Sound/Audio :: Sound Synthesis',
         'Topic :: Scientific/Engineering :: Artificial Intelligence'
     ],
     keywords='assistant bot TTS STT platform intelora',
