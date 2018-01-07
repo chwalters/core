@@ -242,7 +242,7 @@ def start_kalliope(settings, brain):
     """
     # start intelora
     Utils.print_success("")
-    Utils.print_success("Initializing Intelora...")
+    Utils.print_success("Intelora is initializing the agent...")
     Utils.print_success("...")
     Utils.print_success("Loading Brain............[OK]")
     Utils.print_success("Loading Settings.........[OK]")
@@ -255,7 +255,7 @@ def start_kalliope(settings, brain):
     Utils.print_success("...")
     Utils.print_success("Agent is now online!")
     Utils.print_success("")
-    Utils.print_info("Press Ctrl+C to terminate Agent")
+    Utils.print_info("Press Ctrl+C to terminate agent")
     # catch signal for killing on Ctrl+C pressed
     signal.signal(signal.SIGINT, signal_handler)
 
