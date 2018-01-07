@@ -163,7 +163,7 @@ def main():
         try:
             ShellGui(brain=brain)
         except (KeyboardInterrupt, SystemExit):
-            Utils.print_info("Ctrl+C pressed... Terminating Intelora background process")
+            Utils.print_info("Ctrl+C pressed. Terminating Intelora...")
             sys.exit(0)
 
 
