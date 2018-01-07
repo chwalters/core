@@ -5,6 +5,7 @@ import logging
 
 import time
 
+from random import *
 from kalliope.core import ShellGui
 from kalliope.core import Utils
 from kalliope.core.ConfigurationManager import SettingLoader
@@ -163,7 +164,7 @@ def main():
         try:
             ShellGui(brain=brain)
         except (KeyboardInterrupt, SystemExit):
-            Utils.print_info("Ctrl+C pressed... Terminating Intelora background process")
+            Utils.print_info("Ctrl+C pressed. Terminating Intelora...")
             sys.exit(0)
 
 
@@ -242,20 +243,28 @@ def start_kalliope(settings, brain):
     """
     # start intelora
     Utils.print_success("")
-    Utils.print_success("Starting Intelora...")
+    Utils.print_success("Intelora is initializing the agent...")
     Utils.print_success("...")
-    Utils.print_success("Loading Brain............[OK]")
-    Utils.print_success("Loading Settings.........[OK]")
-    Utils.print_success("Loading Neurons..........[OK]")
-    Utils.print_success("Loading Synapses.........[OK]")
-    Utils.print_success("Loading Speech To Text...[OK]")
-    Utils.print_success("Loading Text to Speech...[OK]")
-    Utils.print_success("Loading Triggers.........[OK]")
-    Utils.print_success("Loading Variables........[OK]")
+    Utils.print_success("Brain............[OK]")
+    time.sleep(randint(1, 3))
+    Utils.print_success("Neurons..........[OK]")
+    time.sleep(randint(1, 3))
+    Utils.print_success("Synapses.........[OK]")
+    time.sleep(randint(1, 3))
+    Utils.print_success("Speech To Text...[OK]")
+    time.sleep(randint(1, 3))
+    Utils.print_success("Adapt Parser.....[OK]")
+    time.sleep(randint(1, 3))
+    Utils.print_success("Text to Speech...[OK]")
+    time.sleep(randint(1, 3))
+    Utils.print_success("Triggers.........[OK]")
+    time.sleep(randint(1, 3))
+    Utils.print_success("Variables........[OK]")
+    time.sleep(randint(1, 3))
     Utils.print_success("...")
-    Utils.print_success("Intelora is now online!")
+    Utils.print_success("Agent is now online!")
     Utils.print_success("")
-    Utils.print_info("Press Ctrl+C to terminate Intelora")
+    Utils.print_info("Press Ctrl+C to terminate agent")
     # catch signal for killing on Ctrl+C pressed
     signal.signal(signal.SIGINT, signal_handler)
 
