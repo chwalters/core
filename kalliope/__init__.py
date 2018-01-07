@@ -36,7 +36,7 @@ def signal_handler(signal, frame):
 
     """
     print("\n")
-    Utils.print_info("Ctrl+C pressed. Intelora service stopped")
+    Utils.print_info("Intelora stopped")
     sys.exit(0)
 
 # actions available
@@ -65,7 +65,7 @@ def parse_args(args):
     parser.add_argument("--trigger-name", help="Trigger name to uninstall")
     parser.add_argument("--signal-name", help="Signal name to uninstall")
     parser.add_argument('-v', '--version', action='version',
-                        version='Kalliope ' + version_str)
+                        version='Intelora ' + version_str)
 
     # parse arguments from script parameters
     return parser.parse_args(args)
@@ -164,7 +164,7 @@ def main():
         try:
             ShellGui(brain=brain)
         except (KeyboardInterrupt, SystemExit):
-            Utils.print_info("Ctrl+C pressed. Intelora service stopped")
+            Utils.print_info("Intelora stopped")
             sys.exit(0)
 
 
@@ -243,25 +243,25 @@ def start_kalliope(settings, brain):
     """
     # start intelora
     Utils.print_success("")
-    Utils.print_success("Intelora is initializing the agent...")
-    Utils.print_success("...")
-    Utils.print_success("Brain............[OK]")
+    Utils.print_success("Intelora is initializing the agent:")
     time.sleep(randint(1, 3))
-    Utils.print_success("Neurons..........[OK]")
+    Utils.print_success("Brain................[OK]")
     time.sleep(randint(1, 3))
-    Utils.print_success("Synapses.........[OK]")
+    Utils.print_success("Neurons..............[OK]")
     time.sleep(randint(1, 3))
-    Utils.print_success("Speech To Text...[OK]")
+    Utils.print_success("Synapses.............[OK]")
     time.sleep(randint(1, 3))
-    Utils.print_success("Adapt Parser.....[OK]")
+    Utils.print_success("Speech Recognizer....[OK]")
     time.sleep(randint(1, 3))
-    Utils.print_success("Text to Speech...[OK]")
+    Utils.print_success("Order Manager........[OK]")
     time.sleep(randint(1, 3))
-    Utils.print_success("Triggers.........[OK]")
+    Utils.print_success("Speech Synthesizer...[OK]")
     time.sleep(randint(1, 3))
-    Utils.print_success("Variables........[OK]")
+    Utils.print_success("Triggers.............[OK]")
     time.sleep(randint(1, 3))
-    Utils.print_success("...")
+    Utils.print_success("Variables............[OK]")
+    time.sleep(randint(1, 3))
+    Utils.print_success("")
     Utils.print_success("Agent is now online!")
     Utils.print_success("")
     Utils.print_info("Press Ctrl+C to stop Intelora")

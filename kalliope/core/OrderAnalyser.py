@@ -57,7 +57,8 @@ class OrderAnalyser:
                     if cls.spelt_order_match_brain_order_via_table(signal.parameters, order):
                         # the order match the synapse, we add it to the returned list
                         logger.debug("Order found! Run synapse name: %s" % synapse.name)
-                        Utils.print_success("Order recognized by the brain. Running synapse \"%s\"." % synapse.name)
+                        Utils.print_success("Order recognized by the brain")
+                        Utils.print_success("Running synapse \"%s\"" % synapse.name)
                         list_match_synapse.append(synapse_order_tuple(synapse=synapse, order=signal.parameters))
 
         # create a list of MatchedSynapse from the tuple list

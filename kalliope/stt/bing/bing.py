@@ -35,7 +35,7 @@ class Bing(SpeechRecognition):
                                                        key=self.key,
                                                        language=self.language,
                                                        show_all=self.show_all)
-            Utils.print_success("Bing Speech Recognition thinks you said \"%s\"." % captured_audio)
+            Utils.print_success("Bing Speech Recognition thinks you said \"%s\"" % captured_audio)
             self._analyse_audio(captured_audio)
 
         except sr.UnknownValueError:
