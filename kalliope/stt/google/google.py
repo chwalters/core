@@ -37,7 +37,7 @@ class Google(SpeechRecognition):
                                                          key=self.key,
                                                          language=self.language,
                                                          show_all=self.show_all)
-            Utils.print_success("Google Speech Recognition thinks you said %s" % captured_audio)
+            Utils.print_success("Google Speech Recognition thinks you said: \"%s\"." % captured_audio)
             self._analyse_audio(audio_to_text=captured_audio)
         except sr.UnknownValueError:
             Utils.print_warning("Google Speech Recognition could not understand audio")

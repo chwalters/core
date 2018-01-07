@@ -30,7 +30,7 @@ class Wit(SpeechRecognition):
             captured_audio = recognizer.recognize_wit(audio,
                                                       key=self.key,
                                                       show_all=self.show_all)
-            Utils.print_success("Wit.ai Speech Recognition thinks you said %s" % captured_audio)
+            Utils.print_success("Wit.ai Speech Recognition thinks you said: \"%s\"." % captured_audio)
             self._analyse_audio(captured_audio)
 
         except sr.UnknownValueError:
