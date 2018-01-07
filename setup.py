@@ -30,7 +30,7 @@ if sys.version_info[0] < 3:
 setup(
     name='intelora',
     version=version,
-    description='Intelora is an Open Source Intelligent Personal Assistant Development Platform based on Kalliope Project',
+    description='An Open Source Intelligent Personal Assistant Development Platform',
     url='https://github.com/intelora',
     author='Alexander Paul P. Quinit',
     author_email='paulquinit@gmail.com',
