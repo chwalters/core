@@ -36,7 +36,7 @@ def signal_handler(signal, frame):
 
     """
     print("\n")
-    Utils.print_info("Ctrl+C pressed... Terminating Intelora background process")
+    Utils.print_info("Ctrl+C pressed. Intelora service stopped.")
     sys.exit(0)
 
 # actions available
@@ -164,7 +164,7 @@ def main():
         try:
             ShellGui(brain=brain)
         except (KeyboardInterrupt, SystemExit):
-            Utils.print_info("Ctrl+C pressed. Terminating Intelora...")
+            Utils.print_info("Ctrl+C pressed. Intelora service stopped.")
             sys.exit(0)
 
 
@@ -264,7 +264,7 @@ def start_kalliope(settings, brain):
     Utils.print_success("...")
     Utils.print_success("Agent is now online!")
     Utils.print_success("")
-    Utils.print_info("Press Ctrl+C to terminate agent")
+    Utils.print_info("Press Ctrl+C to stop Intelora.")
     # catch signal for killing on Ctrl+C pressed
     signal.signal(signal.SIGINT, signal_handler)
 
