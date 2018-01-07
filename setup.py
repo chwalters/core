@@ -30,7 +30,7 @@ if sys.version_info[0] < 3:
 setup(
     name='intelora',
     version=version,
-    description='Intelora is an Open Source Intelligent Personal Assistant Development Platform based on Kalliope Project',
+    description='An Open Source Intelligent Personal Assistant Development Platform',
     url='https://github.com/intelora',
     author='Alexander Paul P. Quinit',
     author_email='paulquinit@gmail.com',
@@ -47,9 +47,6 @@ setup(
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
-        'Topic :: Automation',
-        'Topic :: Multimedia :: Sound/Audio :: Speech',
-        'Topic :: Multimedia :: Sound/Audio :: Sound Synthesis',
         'Topic :: Scientific/Engineering :: Artificial Intelligence'
     ],
     keywords='assistant bot TTS STT platform intelora',
