@@ -32,7 +32,7 @@ setup(
     version=version,
     description='Intelora is an Open Source Intelligent Personal Assistant Development Platform based on Kalliope Project',
     url='https://github.com/intelora',
-    author='Intelora Team',
+    author='Alexander Paul P. Quinit',
     author_email='paulquinit@gmail.com',
     license='MIT',
     # See https://pypi.python.org/pypi?%3Aaction=list_classifiers
@@ -47,7 +47,7 @@ setup(
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
-        'Topic :: Home Automation',
+        'Topic :: Automation',
         'Topic :: Multimedia :: Sound/Audio :: Speech',
         'Topic :: Multimedia :: Sound/Audio :: Sound Synthesis',
         'Topic :: Scientific/Engineering :: Artificial Intelligence'
