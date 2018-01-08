@@ -1,1 +1,1 @@
-Intelora Artificial Intelligence Core Package
+BADGES HERE
