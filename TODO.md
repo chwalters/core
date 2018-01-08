@@ -1,0 +1,1 @@
+1. Refactor all 'kalliope' keywords into 'intelora'
