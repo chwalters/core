@@ -3,8 +3,8 @@ import unittest
 
 import time
 
-from kalliope.core.NeuronModule import MissingParameterException
-from kalliope.neurons.shell.shell import Shell
+from intelora.core.NeuronModule import MissingParameterException
+from intelora.neurons.shell.shell import Shell
 
 
 class TestShell(unittest.TestCase):
@@ -12,7 +12,7 @@ class TestShell(unittest.TestCase):
     def setUp(self):
         self.cmd = "cmd"
         self.random = "random"
-        self.test_file = "/tmp/kalliope_text_shell.txt"
+        self.test_file = "/tmp/intelora_text_shell.txt"
 
     def testParameters(self):
         def run_test(parameters_to_test):
@@ -47,7 +47,7 @@ class TestShell(unittest.TestCase):
         """
         Test we can get a content from the launched command
         """
-        text_to_write = 'kalliope'
+        text_to_write = 'intelora'
         # we write a content into a file
         with open(self.test_file, 'w') as myFile:
             myFile.write(text_to_write)

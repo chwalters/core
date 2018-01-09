@@ -1,3 +1,3 @@
 #!/bin/bash
 
-cat /tmp/kalliope_text_shell.txt
+cat /tmp/intelora_text_shell.txt

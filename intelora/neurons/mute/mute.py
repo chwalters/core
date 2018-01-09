@@ -1,10 +1,10 @@
 import logging
 
-from kalliope import SignalLauncher
-from kalliope.core.NeuronModule import NeuronModule
+from intelora import SignalLauncher
+from intelora.core.NeuronModule import NeuronModule
 
 logging.basicConfig()
-logger = logging.getLogger("kalliope")
+logger = logging.getLogger("intelora")
 
 
 class Mute(NeuronModule):

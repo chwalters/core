@@ -21,7 +21,7 @@ No returned values
 Simple example : 
 
 ```yml
-  - name: "stop-kalliope"
+  - name: "stop-intelora"
     signals:
       - order: "goodbye"
     neurons:

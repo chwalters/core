@@ -109,7 +109,7 @@ Passing argument to the called synapse with the `forwarded_parameters`.
         message:
           - "You asked me to remind you to {{ remember }} {{ time }} minutes ago"
 ```
-> **Note:** You can still use the **kalliope_memory** instead of **forwarded_parameters** but your value will be overridden if you call the same synapse a multiple time.
+> **Note:** You can still use the **intelora_memory** instead of **forwarded_parameters** but your value will be overridden if you call the same synapse a multiple time.
 
 ## Notes
 

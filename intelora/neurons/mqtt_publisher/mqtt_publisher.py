@@ -4,10 +4,10 @@ import socket
 import paho
 import paho.mqtt.client as mqtt
 
-from kalliope.core.NeuronModule import NeuronModule
+from intelora.core.NeuronModule import NeuronModule
 
 logging.basicConfig()
-logger = logging.getLogger("kalliope")
+logger = logging.getLogger("intelora")
 
 
 class Mqtt_publisher(NeuronModule):
@@ -23,7 +23,7 @@ class Mqtt_publisher(NeuronModule):
         self.payload = kwargs.get('payload', None)
         self.qos = kwargs.get('qos', 0)
         self.retain = kwargs.get('retain', False)
-        self.client_id = kwargs.get('client_id', 'kalliope')
+        self.client_id = kwargs.get('client_id', 'intelora')
         self.keepalive = kwargs.get('keepalive', 60)
         self.username = kwargs.get('username', None)
         self.password = kwargs.get('password', None)

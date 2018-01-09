@@ -1,7 +1,7 @@
 import time
 import six
 
-from kalliope.core.NeuronModule import NeuronModule,  MissingParameterException
+from intelora.core.NeuronModule import NeuronModule,  MissingParameterException
 
 
 class Sleep(NeuronModule):

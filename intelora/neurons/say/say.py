@@ -1,4 +1,4 @@
-from kalliope.core.NeuronModule import NeuronModule, MissingParameterException
+from intelora.core.NeuronModule import NeuronModule, MissingParameterException
 
 
 class Say(NeuronModule):

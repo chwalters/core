@@ -103,7 +103,7 @@ If you want to add argument to your shell command, you can use an input value fr
           cmd: "rm {{ query }}"
           file_template: remove_file.j2          
 ```
-In the example above, kalliope will remove the file you asked for in the query.
+In the example above, intelora will remove the file you asked for in the query.
 eg: "remove file test", the executed command will be "rm test"
 
 ## Templates example 
