@@ -1,8 +1,8 @@
 import re
 
-from kalliope.core import Utils
-from kalliope.core.ConfigurationManager import YAMLLoader
-from kalliope.core.Models.Dna import Dna
+from intelora.core import Utils
+from intelora.core.ConfigurationManager import YAMLLoader
+from intelora.core.Models.Dna import Dna
 
 
 class InvalidDNAException(Exception):
@@ -51,7 +51,7 @@ class DnaLoader(object):
             new_dna.name = self.yaml_config["name"]
             new_dna.module_type = self.yaml_config["type"]
             new_dna.author = self.yaml_config["author"]
-            new_dna.kalliope_supported_version = self.yaml_config["kalliope_supported_version"]
+            new_dna.intelora_supported_version = self.yaml_config["intelora_supported_version"]
             new_dna.tags = self.yaml_config["tags"]
 
         return new_dna
@@ -79,23 +79,23 @@ class DnaLoader(object):
                 Utils.print_danger("The DNA type must be one of the following: %s" % VALID_DNA_MODULE_TYPE)
                 success_loading = False
 
-        if "kalliope_supported_version" not in dna_file:
-            Utils.print_danger("The DNA of does not contains a \"kalliope_supported_version\" tag")
+        if "intelora_supported_version" not in dna_file:
+            Utils.print_danger("The DNA of does not contains a \"intelora_supported_version\" tag")
             success_loading = False
         else:
-            # kalliope_supported_version must be a non empty list
-            if not isinstance(dna_file["kalliope_supported_version"], list):
-                Utils.print_danger("kalliope_supported_version is not a list")
+            # intelora_supported_version must be a non empty list
+            if not isinstance(dna_file["intelora_supported_version"], list):
+                Utils.print_danger("intelora_supported_version is not a list")
                 success_loading = False
             else:
-                if not dna_file["kalliope_supported_version"]:
-                    Utils.print_danger("kalliope_supported_version cannot be empty")
+                if not dna_file["intelora_supported_version"]:
+                    Utils.print_danger("intelora_supported_version cannot be empty")
                     success_loading = False
                 else:
-                    for supported_version in dna_file["kalliope_supported_version"]:
+                    for supported_version in dna_file["intelora_supported_version"]:
                         # check if major version is provided
                         if not re.search('^[\d]*[.][\d]*$', str(supported_version)):
-                            Utils.print_danger("kalliope_supported_version cannot handle this format of version %s. "
+                            Utils.print_danger("intelora_supported_version cannot handle this format of version %s. "
                                                "Only major version should be provided" % supported_version)
                             success_loading = False
 

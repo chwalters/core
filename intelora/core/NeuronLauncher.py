@@ -3,13 +3,13 @@ import logging
 import jinja2
 import six
 
-from kalliope.core.ConfigurationManager.SettingLoader import SettingLoader
-from kalliope.core.Cortex import Cortex
-from kalliope.core.NeuronExceptions import NeuronExceptions
-from kalliope.core.Utils.Utils import Utils
+from intelora.core.ConfigurationManager.SettingLoader import SettingLoader
+from intelora.core.Cortex import Cortex
+from intelora.core.NeuronExceptions import NeuronExceptions
+from intelora.core.Utils.Utils import Utils
 
 logging.basicConfig()
-logger = logging.getLogger("kalliope")
+logger = logging.getLogger("intelora")
 
 
 class NeuronParameterNotAvailable(Exception):
@@ -74,9 +74,9 @@ class NeuronLauncher:
         """
         logger.debug("[NeuronLauncher] replacing brackets from %s, using %s" % (neuron_parameters, loaded_parameters))
         # add variables from the short term memory to the list of loaded parameters that can be used in a template
-        # the final dict is added into a key "kalliope_memory" to not override existing keys loaded form the order
+        # the final dict is added into a key "intelora_memory" to not override existing keys loaded form the order
         memory_dict = dict()
-        memory_dict["kalliope_memory"] = Cortex.get_memory()
+        memory_dict["intelora_memory"] = Cortex.get_memory()
         if loaded_parameters is None:
             loaded_parameters = dict()  # instantiate an empty dict in order to be able to add memory in it
         loaded_parameters.update(memory_dict)
@@ -98,8 +98,8 @@ class NeuronLauncher:
         if isinstance(neuron_parameters, dict):
             returned_dict = dict()
             for key, value in neuron_parameters.items():
-                # following keys are reserved by kalliope core
-                if key in "say_template" or key in "file_template" or key in "kalliope_memory" \
+                # following keys are reserved by intelora core
+                if key in "say_template" or key in "file_template" or key in "intelora_memory" \
                         or key in "from_answer_link":
                     returned_dict[key] = value
                 else:
@@ -143,7 +143,7 @@ class NeuronLauncher:
     @staticmethod
     def load_settings():
         """
-        Return loaded kalliope settings
+        Return loaded intelora settings
         :return: setting object
         """
         sl = SettingLoader()

@@ -4,7 +4,7 @@ import os
 import sys
 
 logging.basicConfig()
-logger = logging.getLogger("kalliope")
+logger = logging.getLogger("intelora")
 
 
 class FileManager:

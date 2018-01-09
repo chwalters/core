@@ -3,10 +3,10 @@ import logging
 import os
 import subprocess
 
-from kalliope.core.Utils.FileManager import FileManager
+from intelora.core.Utils.FileManager import FileManager
 
 logging.basicConfig()
-logger = logging.getLogger("kalliope")
+logger = logging.getLogger("intelora")
 
 
 class PlayerModule(object):

@@ -8,18 +8,18 @@ import tempfile
 from git import Repo
 from packaging import version
 
-from kalliope.core.ConfigurationManager import SettingLoader
-from kalliope.core.ConfigurationManager.DnaLoader import DnaLoader
-from kalliope.core.Models import Neuron
-from kalliope.core.NeuronLauncher import NeuronLauncher
-from kalliope.core.Utils import Utils
+from intelora.core.ConfigurationManager import SettingLoader
+from intelora.core.ConfigurationManager.DnaLoader import DnaLoader
+from intelora.core.Models import Neuron
+from intelora.core.NeuronLauncher import NeuronLauncher
+from intelora.core.Utils import Utils
 
 logging.basicConfig()
-logger = logging.getLogger("kalliope")
+logger = logging.getLogger("intelora")
 
 # Global values for processing:
-# LOCAL_TMP_FOLDER = "/tmp/kalliope/resources/"
-TMP_GIT_FOLDER = "kalliope_new_module_temp_name"
+# LOCAL_TMP_FOLDER = "/tmp/intelora/resources/"
+TMP_GIT_FOLDER = "intelora_new_module_temp_name"
 DNA_FILE_NAME = "dna.yml"
 INSTALL_FILE_NAME = "install.yml"
 
@@ -54,7 +54,7 @@ class ResourcesManager(object):
         self.git_url = kwargs.get('git_url', None)
 
         # temp path where we install the new module
-        self.tmp_path = tempfile.gettempdir() + "/kalliope/resources/" + TMP_GIT_FOLDER
+        self.tmp_path = tempfile.gettempdir() + "/intelora/resources/" + TMP_GIT_FOLDER
         self.dna_file_path = self.tmp_path + os.sep + DNA_FILE_NAME
         self.install_file_path = self.tmp_path + os.sep + INSTALL_FILE_NAME
         self.dna = None
@@ -77,8 +77,8 @@ class ResourcesManager(object):
                 logger.debug("[ResourcesManager] DNA file content: " + str(self.dna))
                 if self.is_settings_ok(resources=self.settings.resources, dna=self.dna):
                     # the dna file is ok, check the supported version
-                    if self._check_supported_version(current_version=self.settings.kalliope_version,
-                                                     supported_versions=self.dna.kalliope_supported_version):
+                    if self._check_supported_version(current_version=self.settings.intelora_version,
+                                                     supported_versions=self.dna.intelora_supported_version):
 
                         # Let's find the target folder depending the type
                         module_type = self.dna.module_type.lower()

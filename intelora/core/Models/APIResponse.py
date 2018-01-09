@@ -1,4 +1,4 @@
-from kalliope.core.Utils import Utils
+from intelora.core.Utils import Utils
 
 
 class APIResponse(object):

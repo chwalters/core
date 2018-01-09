@@ -1,20 +1,20 @@
 import logging
 
 import jinja2
-from kalliope.core.Utils.Utils import Utils
+from intelora.core.Utils.Utils import Utils
 
-from kalliope.core.Models import Singleton
+from intelora.core.Models import Singleton
 from six import with_metaclass
 
 logging.basicConfig()
-logger = logging.getLogger("kalliope")
+logger = logging.getLogger("intelora")
 
 
 class Cortex(with_metaclass(Singleton, object)):
     """
-    short-term memories of kalliope. Used to store object with a "key" "value"
+    short-term memories of intelora. Used to store object with a "key" "value"
     """
-    # this dict contains the short term memory of kalliope.
+    # this dict contains the short term memory of intelora.
     # all keys present in this dict has been saved from a user demand
     memory = dict()
     # this is a temp dict that allow us to store temporary parameters that as been loaded from the user order
@@ -67,10 +67,10 @@ class Cortex(with_metaclass(Singleton, object)):
         cls.temp = dict()
 
     @classmethod
-    def save_neuron_parameter_in_memory(cls, kalliope_memory_dict, neuron_parameters):
+    def save_neuron_parameter_in_memory(cls, intelora, neuron_parameters):
         """
         receive a dict of value send by the child neuron
-        save in kalliope memory all value
+        save in intelora memory all value
 
         E.g
         dict_parameter_to_save = {"my_key_to_save_in_memory": "{{ output_val_from_neuron }}"}
@@ -80,14 +80,14 @@ class Cortex(with_metaclass(Singleton, object)):
 
         :param neuron_parameters: dict of parameter the neuron has processed and send to the neurone module to
                 be processed by the TTS engine
-        :param kalliope_memory_dict: a dict of key value the user want to save from the dict_neuron_parameter
+        :param intelora_memory_dict: a dict of key value the user want to save from the dict_neuron_parameter
         """
 
-        if kalliope_memory_dict is not None:
-            logger.debug("[Cortex] save_memory - User want to save: %s" % kalliope_memory_dict)
+        if intelora_memory_dict is not None:
+            logger.debug("[Cortex] save_memory - User want to save: %s" % intelora_memory_dict)
             logger.debug("[Cortex] save_memory - Available parameters in the neuron: %s" % neuron_parameters)
 
-            for key, value in kalliope_memory_dict.items():
+            for key, value in intelora_memory_dict.items():
                 # ask the cortex to save in memory the target "key" if it was in parameters of the neuron
                 if isinstance(neuron_parameters, dict):
                     if Utils.is_containing_bracket(value):
@@ -100,7 +100,7 @@ class Cortex(with_metaclass(Singleton, object)):
         Save key from the temp dict (where parameters loaded from the voice order where placed temporary)
         into the memory dict
         :param order_parameters: dict of key to save.  {'key_name_in_memory': 'key_name_in_temp_dict'}
-        :return True if a value has been saved in the kalliope memory
+        :return True if a value has been saved in the intelora memory
         """
         order_saved = False
         if order_parameters is not None:

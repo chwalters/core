@@ -6,18 +6,18 @@ import sys
 import six
 from jinja2 import Template
 
-from kalliope.core import OrderListener
-from kalliope.core.ConfigurationManager import SettingLoader, BrainLoader
-from kalliope.core.Cortex import Cortex
-from kalliope.core.LIFOBuffer import LIFOBuffer
-from kalliope.core.Models.MatchedSynapse import MatchedSynapse
-from kalliope.core.NeuronExceptions import NeuronExceptions
-from kalliope.core.OrderAnalyser import OrderAnalyser
-from kalliope.core.Utils.RpiUtils import RpiUtils
-from kalliope.core.Utils.Utils import Utils
+from intelora.core import OrderListener
+from intelora.core.ConfigurationManager import SettingLoader, BrainLoader
+from intelora.core.Cortex import Cortex
+from intelora.core.LIFOBuffer import LIFOBuffer
+from intelora.core.Models.MatchedSynapse import MatchedSynapse
+from intelora.core.NeuronExceptions import NeuronExceptions
+from intelora.core.OrderAnalyser import OrderAnalyser
+from intelora.core.Utils.RpiUtils import RpiUtils
+from intelora.core.Utils.Utils import Utils
 
 logging.basicConfig()
-logger = logging.getLogger("kalliope")
+logger = logging.getLogger("intelora")
 
 
 class InvalidParameterException(NeuronExceptions):
@@ -105,16 +105,16 @@ class NeuronModule(object):
         self.tts_message = None
         # if the current call is api one
         self.is_api_call = kwargs.get('is_api_call', False)
-        # if the current call want to mute kalliope
+        # if the current call want to mute intelora
         self.no_voice = kwargs.get('no_voice', False)
         # boolean to know id the synapse is waiting for an answer
         self.is_waiting_for_answer = False
         # the synapse name to add the the buffer
         self.pending_synapse = None
         # a dict of parameters the user ask to save in short term memory
-        self.kalliope_memory = kwargs.get('kalliope_memory', None)
+        self.intelora_memory = kwargs.get('intelora_memory', None)
         # parameters loaded from the order can be save now
-        Cortex.save_parameter_from_order_in_memory(self.kalliope_memory)
+        Cortex.save_parameter_from_order_in_memory(self.intelora_memory)
 
     def __str__(self):
         retuned_string = ""
@@ -150,7 +150,7 @@ class NeuronModule(object):
         tts_message = None
 
         # we can save parameters from the neuron in memory
-        Cortex.save_neuron_parameter_in_memory(self.kalliope_memory, message)
+        Cortex.save_neuron_parameter_in_memory(self.intelora_memory, message)
 
         if isinstance(message, str) or isinstance(message, six.text_type):
             logger.debug("[NeuronModule] message is string")

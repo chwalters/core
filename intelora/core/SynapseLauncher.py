@@ -1,14 +1,14 @@
 import logging
 
-from kalliope.core.ConfigurationManager import BrainLoader
-from kalliope.core.LIFOBuffer import LIFOBuffer
-from kalliope.core.Models.MatchedSynapse import MatchedSynapse
-from kalliope.core.NeuronLauncher import NeuronLauncher
-from kalliope.core.OrderAnalyser import OrderAnalyser
+from intelora.core.ConfigurationManager import BrainLoader
+from intelora.core.LIFOBuffer import LIFOBuffer
+from intelora.core.Models.MatchedSynapse import MatchedSynapse
+from intelora.core.NeuronLauncher import NeuronLauncher
+from intelora.core.OrderAnalyser import OrderAnalyser
 
 
 logging.basicConfig()
-logger = logging.getLogger("kalliope")
+logger = logging.getLogger("intelora")
 
 
 class SynapseNameNotFound(Exception):

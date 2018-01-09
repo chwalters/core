@@ -9,10 +9,10 @@ import time
 
 import logging
 
-from kalliope.core.Models.RpiSettings import RpiSettings
+from intelora.core.Models.RpiSettings import RpiSettings
 
 logging.basicConfig()
-logger = logging.getLogger("kalliope")
+logger = logging.getLogger("intelora")
 
 
 class RpiUtils(Thread):
@@ -37,7 +37,7 @@ class RpiUtils(Thread):
 
     def run(self):
         """
-        Start the thread to make kalliope waiting for an input GPIO signal
+        Start the thread to make intelora waiting for an input GPIO signal
         """
         # run the main thread
         try:
@@ -47,16 +47,16 @@ class RpiUtils(Thread):
             self.destroy()
         self.destroy()
 
-    def switch_kalliope_mute_led(self, event):
+    def switch_intelora_mute_led(self, event):
         """
         Switch the state of the MUTE LED
         :param event: not used
         """
         logger.debug("[RpiUtils] Event button caught. Switching mute led")
         # get led status
-        led_mute_kalliope = GPIO.input(self.rpi_settings.pin_led_muted)
+        led_mute_intelora = GPIO.input(self.rpi_settings.pin_led_muted)
         # switch state
-        if led_mute_kalliope == GPIO.HIGH:
+        if led_mute_intelora == GPIO.HIGH:
             logger.debug("[RpiUtils] Switching pin_led_muted to OFF")
             self.switch_pin_to_off(self.rpi_settings.pin_led_muted)
             self.callback(muted=False)
@@ -94,7 +94,7 @@ class RpiUtils(Thread):
         if self.rpi_settings.pin_mute_button:
             GPIO.setup(rpi_settings.pin_mute_button, GPIO.IN, pull_up_down=GPIO.PUD_UP)
             GPIO.add_event_detect(rpi_settings.pin_mute_button, GPIO.FALLING,
-                                  callback=self.switch_kalliope_mute_led,
+                                  callback=self.switch_intelora_mute_led,
                                   bouncetime=500)
 
     @classmethod
