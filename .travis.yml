@@ -15,13 +15,13 @@ before_install:
 - sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu trusty-updates main restricted universe multiverse"
 - sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu trusty-backports main restricted universe multiverse"
 - sudo apt-get update
-- sudo apt-get install $(cat tests/install/packages/deb_requirements.txt)
+- sudo apt-get install $(cat tests/requirements/deb-requirements.txt)
 - sudo apt-get install libstdc++6 libpython3.4-dev
 - wget https://bootstrap.pypa.io/get-pip.py
 - sudo python get-pip.py
 
 install:
-  - pip install -r tests/install/packages/python_requirements.txt
+  - pip install -r tests/requirements/python-requirements.txt
   - pip install python2-pythondialog || pip install pythondialog
   - pip install coveralls
 
