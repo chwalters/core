@@ -4,11 +4,11 @@ from time import sleep
 import logging
 import speech_recognition as sr
 
-from kalliope import Utils, SettingLoader
-from kalliope.core.Utils.RpiUtils import RpiUtils
+from intelora import Utils, SettingLoader
+from intelora.core.Utils.RpiUtils import RpiUtils
 
 logging.basicConfig()
-logger = logging.getLogger("kalliope")
+logger = logging.getLogger("intelora")
 
 
 class SpeechRecognition(Thread):

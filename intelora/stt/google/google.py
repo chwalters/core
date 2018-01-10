@@ -2,8 +2,8 @@ from time import sleep
 
 import speech_recognition as sr
 
-from kalliope.core import Utils
-from kalliope.stt.Utils import SpeechRecognition
+from intelora.core import Utils
+from intelora.stt.Utils import SpeechRecognition
 
 
 class Google(SpeechRecognition):
