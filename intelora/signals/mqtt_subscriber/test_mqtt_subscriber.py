@@ -1,8 +1,8 @@
 import unittest
 
-from kalliope.core.Models import Neuron, Signal, Synapse, Brain
-from kalliope.signals.mqtt_subscriber import Mqtt_subscriber
-from kalliope.signals.mqtt_subscriber.models import Broker, Topic
+from intelora.core.Models import Neuron, Signal, Synapse, Brain
+from intelora.signals.mqtt_subscriber import Mqtt_subscriber
+from intelora.signals.mqtt_subscriber.models import Broker, Topic
 
 
 class TestMqtt_subscriber(unittest.TestCase):

@@ -3,24 +3,24 @@ import random
 from threading import Thread
 from time import sleep
 
-from kalliope.core.Utils.RpiUtils import RpiUtils
+from intelora.core.Utils.RpiUtils import RpiUtils
 
-from kalliope.core.SynapseLauncher import SynapseLauncher
+from intelora.core.SynapseLauncher import SynapseLauncher
 
-from kalliope.core.OrderListener import OrderListener
+from intelora.core.OrderListener import OrderListener
 
-from kalliope import Utils, BrainLoader
-from kalliope.neurons.say import Say
+from intelora import Utils, BrainLoader
+from intelora.neurons.say import Say
 
-from kalliope.core.TriggerLauncher import TriggerLauncher
+from intelora.core.TriggerLauncher import TriggerLauncher
 from transitions import Machine
 
-from kalliope.core.PlayerLauncher import PlayerLauncher
+from intelora.core.PlayerLauncher import PlayerLauncher
 
-from kalliope.core.ConfigurationManager import SettingLoader
+from intelora.core.ConfigurationManager import SettingLoader
 
 logging.basicConfig()
-logger = logging.getLogger("kalliope")
+logger = logging.getLogger("intelora")
 
 
 class Order(Thread):
@@ -98,7 +98,7 @@ class Order(Thread):
         self.trigger_instance = TriggerLauncher.get_trigger(settings=self.settings, callback=self.trigger_callback)
         self.trigger_callback_called = False
         self.trigger_instance.daemon = True
-        # Wait that the kalliope trigger is pronounced by the user
+        # Wait that the intelora trigger is pronounced by the user
         self.trigger_instance.start()
         self.next_state()
 
@@ -230,7 +230,7 @@ class Order(Thread):
     def set_mute_status(self, muted=False):
         """
         Define is the trigger is listening or not
-        :param muted: Boolean. If true, kalliope is muted
+        :param muted: Boolean. If true, intelora is muted
         """
         logger.debug("[MainController] Mute button pressed. Switch trigger process to muted: %s" % muted)
         if muted:
@@ -260,7 +260,7 @@ class Order(Thread):
                 # start the listening for button pressed thread only if the user set a pin
                 rpi_utils.daemon = True
                 rpi_utils.start()
-        # switch high the start led, as kalliope is started. Only if the setting exist
+        # switch high the start led, as intelora is started. Only if the setting exist
         if self.settings.rpi_settings:
             if self.settings.rpi_settings.pin_led_started:
                 logger.debug("[MainController] Switching pin_led_started to ON")

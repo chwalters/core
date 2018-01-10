@@ -1,14 +1,14 @@
 import logging
 from threading import Thread
 
-from kalliope.core.ConfigurationManager import BrainLoader
-from kalliope.signals.mqtt_subscriber.MqttClient import MqttClient
-from kalliope.signals.mqtt_subscriber.models import Broker, Topic
+from intelora.core.ConfigurationManager import BrainLoader
+from intelora.signals.mqtt_subscriber.MqttClient import MqttClient
+from intelora.signals.mqtt_subscriber.models import Broker, Topic
 
-CLIENT_ID = "kalliope"
+CLIENT_ID = "intelora"
 
 logging.basicConfig()
-logger = logging.getLogger("kalliope")
+logger = logging.getLogger("intelora")
 
 
 class Mqtt_subscriber(Thread):

@@ -17,7 +17,7 @@ The broker filters all incoming messages and distributes them accordingly.
 | topic        | YES      |          |                     | topic name to subscribe                                                                                                                          |
 | is_json      | NO       | FALSE    | True, False         | if true, all received message will be converted into a dict                                                                                      |
 | broker_port  | NO       | 1883     |                     | Port of the broker. By default 1883. 8883 when TLS is activated.                                                                                 |
-| client_id    | NO       | kalliope |                     | The client identifier is an identifier of each MQTT client and used by the broker server for identifying the client. Should be unique per broker |
+| client_id    | NO       | intelora |                     | The client identifier is an identifier of each MQTT client and used by the broker server for identifying the client. Should be unique per broker |
 | keepalive    | NO       | 60       |                     | A time interval in seconds where the clients commits to by sending regular PING Request messages to the broker.                                  |
 | username     | NO       |          |                     | username for authenticating the client                                                                                                           |
 | password     | NO       |          |                     | password for authenticating the client                                                                                                           |
