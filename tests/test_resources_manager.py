@@ -3,9 +3,9 @@ import unittest
 
 from mock import mock
 
-from kalliope import ResourcesManager
-from kalliope.core.Models import Resources
-from kalliope.core.Models.Dna import Dna
+from intelora import ResourcesManager
+from intelora.core.Models import Resources
+from intelora.core.Models.Dna import Dna
 
 
 class TestResourcesmanager(unittest.TestCase):
@@ -94,29 +94,29 @@ class TestResourcesmanager(unittest.TestCase):
 
     def test_is_repo_ok(self):
         # valid repo
-        if "/Tests" in os.getcwd():
+        if "/tests" in os.getcwd():
             dna_file_path = "modules/dna.yml"
             install_file_path = "modules/install.yml"
         else:
-            dna_file_path = "Tests/modules/dna.yml"
-            install_file_path = "Tests/modules/install.yml"
+            dna_file_path = "tests/modules/dna.yml"
+            install_file_path = "tests/modules/install.yml"
         self.assertTrue(ResourcesManager.is_repo_ok(dna_file_path=dna_file_path, install_file_path=install_file_path))
 
         # missing dna
-        if "/Tests" in os.getcwd():
+        if "/tests" in os.getcwd():
             dna_file_path = ""
             install_file_path = "modules/install.yml"
         else:
             dna_file_path = "T"
-            install_file_path = "Tests/modules/install.yml"
+            install_file_path = "tests/modules/install.yml"
         self.assertFalse(ResourcesManager.is_repo_ok(dna_file_path=dna_file_path, install_file_path=install_file_path))
 
         # missing install
-        if "/Tests" in os.getcwd():
+        if "/tests" in os.getcwd():
             dna_file_path = "modules/dna.yml"
             install_file_path = ""
         else:
-            dna_file_path = "Tests/modules/dna.yml"
+            dna_file_path = "tests/modules/dna.yml"
             install_file_path = ""
         self.assertFalse(ResourcesManager.is_repo_ok(dna_file_path=dna_file_path, install_file_path=install_file_path))
 
@@ -170,10 +170,10 @@ class TestResourcesmanager(unittest.TestCase):
         current_version = '0.4.0'
         supported_version = [0.3, 0.2]
 
-        with mock.patch('kalliope.Utils.query_yes_no', return_value=True):
+        with mock.patch('intelora.Utils.query_yes_no', return_value=True):
             self.assertTrue(ResourcesManager._check_supported_version(current_version=current_version,
                                                                       supported_versions=supported_version))
 
-        with mock.patch('kalliope.Utils.query_yes_no', return_value=False):
+        with mock.patch('intelora.Utils.query_yes_no', return_value=False):
             self.assertFalse(ResourcesManager._check_supported_version(current_version=current_version,
                                                                        supported_versions=supported_version))

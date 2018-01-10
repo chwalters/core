@@ -2,9 +2,9 @@ import unittest
 
 from mock import mock
 
-from kalliope.core import OrderListener
-from kalliope.core.Models import Resources
-from kalliope.core.Models.Stt import Stt
+from intelora.core import OrderListener
+from intelora.core.Models import Resources
+from intelora.core.Models.Stt import Stt
 
 
 class TestOrderListener(unittest.TestCase):
@@ -37,7 +37,7 @@ class TestOrderListener(unittest.TestCase):
 
         ol.callback = callback
 
-        with mock.patch("kalliope.core.Utils.get_dynamic_class_instantiation") as mock_get_dynamic_class_instantiation:
+        with mock.patch("intelora.core.Utils.get_dynamic_class_instantiation") as mock_get_dynamic_class_instantiation:
             mock_get_dynamic_class_instantiation.return_value = 'class_instance'
             self.assertEqual(ol.load_stt_plugin(),
                              "class_instance",

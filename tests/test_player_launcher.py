@@ -1,9 +1,9 @@
 import unittest
 import mock
 
-from kalliope.core.Models.Player import Player
-from kalliope.core.Models.Settings import Settings
-from kalliope.core.PlayerLauncher import PlayerLauncher
+from intelora.core.Models.Player import Player
+from intelora.core.Models.Settings import Settings
+from intelora.core.PlayerLauncher import PlayerLauncher
 
 
 class TestPlayerLauncher(unittest.TestCase):
@@ -24,7 +24,7 @@ class TestPlayerLauncher(unittest.TestCase):
         player2 = Player("Player2", {'test': "hitheparamtest"})
         settings = Settings()
         settings.players = [player1, player2]
-        with mock.patch("kalliope.core.Utils.get_dynamic_class_instantiation") as mock_get_class_instantiation:
+        with mock.patch("intelora.core.Utils.get_dynamic_class_instantiation") as mock_get_class_instantiation:
             # Get the player1
             settings.default_player_name = "Player"
             PlayerLauncher.get_player(settings=settings)

@@ -1,6 +1,6 @@
 import unittest
 
-from kalliope.core.NeuronParameterLoader import NeuronParameterLoader
+from intelora.core.NeuronParameterLoader import NeuronParameterLoader
 
 
 class TestNeuronParameterLoader(unittest.TestCase):

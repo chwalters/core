@@ -4,8 +4,8 @@ from collections import namedtuple
 
 import mock
 
-from kalliope.neurons.ansible_playbook import Ansible_playbook
-from kalliope.core.NeuronModule import MissingParameterException
+from intelora.neurons.ansible_playbook import Ansible_playbook
+from intelora.core.NeuronModule import MissingParameterException
 
 
 class TestAnsible_Playbook(unittest.TestCase):
@@ -13,7 +13,7 @@ class TestAnsible_Playbook(unittest.TestCase):
     def setUp(self):
         self.task_file = "task_file"
         self.random = "random"
-        self.test_file = "/tmp/kalliope_text_ansible_playbook.txt"
+        self.test_file = "/tmp/intelora_text_ansible_playbook.txt"
 
     def testParameters(self):
         def run_test(parameters_to_test):
@@ -46,7 +46,7 @@ class TestAnsible_Playbook(unittest.TestCase):
 
         # parameters ok
         parameters = {
-            "task_file": "kalliope/neurons/ansible_playbook/tests/test_ansible_playbook_neuron.yml",
+            "task_file": "intelora/neurons/ansible_playbook/tests/test_ansible_playbook_neuron.yml",
             "sudo": True,
             "sudo_user": "user",
             "sudo_password": "password"
@@ -62,7 +62,7 @@ class TestAnsible_Playbook(unittest.TestCase):
         """
         # without sudo
         param = {
-            "task_file": "kalliope/neurons/ansible_playbook/tests/test_ansible_playbook_neuron.yml"
+            "task_file": "intelora/neurons/ansible_playbook/tests/test_ansible_playbook_neuron.yml"
         }
 
         Ansible_playbook(**param)
@@ -74,7 +74,7 @@ class TestAnsible_Playbook(unittest.TestCase):
 
         # with sudo
         param = {
-            "task_file": "kalliope/neurons/ansible_playbook/tests/test_ansible_playbook_neuron.yml",
+            "task_file": "intelora/neurons/ansible_playbook/tests/test_ansible_playbook_neuron.yml",
             "sudo": True,
             "sudo_user": "user",
             "sudo_password": "password"

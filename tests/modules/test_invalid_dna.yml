@@ -3,7 +3,7 @@
   type: "non existing"
   author: "Kalliope project team"
 
-  kalliope_supported_version:
+  intelora_supported_version:
     - 0.4
 
   tags:

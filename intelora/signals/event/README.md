@@ -86,7 +86,7 @@ The synapse in the brain would be
 
 After setting up an event, you must restart Kalliope
 ```bash
-python kalliope.py start
+python intelora.py start
 ```
 
 If the syntax is ok, Kalliope will show you each synapse that it has loaded in the crontab

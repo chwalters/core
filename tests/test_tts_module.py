@@ -3,9 +3,9 @@ import unittest
 
 import mock
 
-from kalliope.core.Models.Settings import Settings
-from kalliope.core.TTS.TTSModule import TTSModule, TtsGenerateAudioFunctionNotFound
-from kalliope.core.Utils.FileManager import FileManager
+from intelora.core.Models.Settings import Settings
+from intelora.core.TTS.TTSModule import TTSModule, TtsGenerateAudioFunctionNotFound
+from intelora.core.Utils.FileManager import FileManager
 
 
 class TestTTSModule(unittest.TestCase):
@@ -22,7 +22,7 @@ class TestTTSModule(unittest.TestCase):
         Test generate md5 method
         """
 
-        word = "kalliope"
+        word = "intelora"
         expected_result = "5c186d1e123be2667fb5fd54640e4fd0"
 
         self.assertEqual(TTSModule.generate_md5_from_words(words=word),
@@ -34,11 +34,11 @@ class TestTTSModule(unittest.TestCase):
         Test the path to store audio
         """
 
-        self.TTSMod.words = "kalliope"
-        settings = Settings(cache_path="/tmp/kalliope/tests")
+        self.TTSMod.words = "intelora"
+        settings = Settings(cache_path="/tmp/intelora/tests")
         self.TTSMod.settings = settings
 
-        expected_result = "/tmp/kalliope/tests/TTSModule/tests/default/5c186d1e123be2667fb5fd54640e4fd0.tts"
+        expected_result = "/tmp/intelora/tests/TTSModule/tests/default/5c186d1e123be2667fb5fd54640e4fd0.tts"
 
         self.assertEqual(self.TTSMod._get_path_to_store_audio(),
                          expected_result,
@@ -51,10 +51,10 @@ class TestTTSModule(unittest.TestCase):
         def new_play_audio(TTSModule):
             pass
 
-        words = "kalliope"
+        words = "intelora"
 
         with mock.patch.object(TTSModule, 'play_audio', new=new_play_audio):
-            settings = Settings(cache_path="/tmp/kalliope/tests")
+            settings = Settings(cache_path="/tmp/intelora/tests")
             self.TTSMod.settings = settings
 
             # test missing callback
@@ -78,14 +78,14 @@ class TestTTSModule(unittest.TestCase):
 
             # with cache True and existing on system
             # create tmp file
-            tmp_base_path = "/tmp/kalliope/tests/TTSModule/tests/default/"
+            tmp_base_path = "/tmp/intelora/tests/TTSModule/tests/default/"
             file_path = os.path.join(tmp_base_path, "5c186d1e123be2667fb5fd54640e4fd0.tts")
             if os.path.isfile(file_path):
                 # Remove the file
                 FileManager.remove_file(file_path)
             if not os.path.exists(tmp_base_path):
                 os.makedirs(tmp_base_path)
-            FileManager.write_in_file(file_path, "[kalliope-test] test_generate_and_play")
+            FileManager.write_in_file(file_path, "[intelora-test] test_generate_and_play")
             self.TTSMod.cache = True
             generate_audio_function_from_child = mock.Mock()
             self.TTSMod.generate_and_play(words=words,
@@ -99,7 +99,7 @@ class TestTTSModule(unittest.TestCase):
         Test if file is already stored in cache
         """
 
-        base_cache_path = "/tmp/kalliope/tests/TTSModule/tests/default/"
+        base_cache_path = "/tmp/intelora/tests/TTSModule/tests/default/"
         md5_word = "5c186d1e123be2667fb5fd54640e4fd0"
         file_path = os.path.join(base_cache_path, "5c186d1e123be2667fb5fd54640e4fd0.tts")
 
@@ -110,7 +110,7 @@ class TestTTSModule(unittest.TestCase):
         if not os.path.exists(base_cache_path):
             os.makedirs(base_cache_path)
         tmp_path = os.path.join(base_cache_path, md5_word+".tts")
-        FileManager.write_in_file(tmp_path, "[kalliope-test] test_is_file_already_in_cache")
+        FileManager.write_in_file(tmp_path, "[intelora-test] test_is_file_already_in_cache")
 
         # Test true
         self.assertTrue(TTSModule._is_file_already_in_cache(base_cache_path=base_cache_path, file_path=file_path),

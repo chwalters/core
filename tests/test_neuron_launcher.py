@@ -2,13 +2,13 @@
 
 import unittest
 import mock
-from kalliope.core.Models import Singleton
+from intelora.core.Models import Singleton
 
-from kalliope.core.Models.Resources import Resources
-from kalliope.core.NeuronLauncher import NeuronLauncher, NeuronParameterNotAvailable
-from kalliope.core.ConfigurationManager import SettingLoader
+from intelora.core.Models.Resources import Resources
+from intelora.core.NeuronLauncher import NeuronLauncher, NeuronParameterNotAvailable
+from intelora.core.ConfigurationManager import SettingLoader
 
-from kalliope.core.Models.Neuron import Neuron
+from intelora.core.Models.Neuron import Neuron
 
 
 class TestNeuronLauncher(unittest.TestCase):
@@ -33,7 +33,7 @@ class TestNeuronLauncher(unittest.TestCase):
         sl = SettingLoader()
         resources = Resources(neuron_folder='/var/tmp/test/resources')
         sl.settings.resources = resources
-        with mock.patch("kalliope.core.Utils.get_dynamic_class_instantiation") as mock_get_class_instantiation:
+        with mock.patch("intelora.core.Utils.get_dynamic_class_instantiation") as mock_get_class_instantiation:
             NeuronLauncher.launch_neuron(neuron=neuron)
 
             mock_get_class_instantiation.assert_called_once_with(package_name="neurons",
@@ -47,7 +47,7 @@ class TestNeuronLauncher(unittest.TestCase):
         Testing params association and starting a Neuron
         """
 
-        with mock.patch("kalliope.core.NeuronLauncher.launch_neuron") as mock_launch_neuron_method:
+        with mock.patch("intelora.core.NeuronLauncher.launch_neuron") as mock_launch_neuron_method:
             # Assert to the neuron is launched with not parameter from order
             neuron1 = Neuron(name='neurone1', parameters={'var1': 'val1'})
 
@@ -210,7 +210,7 @@ class TestNeuronLauncher(unittest.TestCase):
                                                                                                loaded_parameters))
 
         # the parameter is a reserved key. for example from_answer_link from the neurotransmitter
-        list_reserved_keys = ["say_template", "file_template", "kalliope_memory", "from_answer_link"]
+        list_reserved_keys = ["say_template", "file_template", "intelora_memory", "from_answer_link"]
 
         for reserved_key in list_reserved_keys:
             neuron_parameters = {

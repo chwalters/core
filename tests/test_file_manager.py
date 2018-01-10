@@ -1,7 +1,7 @@
 import unittest
 import os
 
-from kalliope.core.Utils.FileManager import FileManager
+from intelora.core.Utils.FileManager import FileManager
 
 
 class TestFileManager(unittest.TestCase):
@@ -21,7 +21,7 @@ class TestFileManager(unittest.TestCase):
         Test to create a new directory.
         """
         # set up
-        cache_path = "/tmp/kalliope/tests/testDirectory"
+        cache_path = "/tmp/intelora/tests/testDirectory"
         if os.path.exists(cache_path):
             os.removedirs(cache_path)
 
@@ -39,7 +39,7 @@ class TestFileManager(unittest.TestCase):
         """
 
         # set up the context
-        dir_path = "/tmp/kalliope/tests/"
+        dir_path = "/tmp/intelora/tests/"
         file_name = "test_FileManager_writeInFile"
         file_path = os.path.join(dir_path,file_name)
         in_file_text = "[Kalliope] Testing the write_in_file method from Utils.FileManager"
@@ -71,7 +71,7 @@ class TestFileManager(unittest.TestCase):
         """
 
         # set up the context
-        dir_path = "/tmp/kalliope/tests/"
+        dir_path = "/tmp/intelora/tests/"
         file_name = "test_FileManager_fileIsEmpty"
         file_path = os.path.join(dir_path, file_name)
         if os.path.exists(file_path):
@@ -96,7 +96,7 @@ class TestFileManager(unittest.TestCase):
         """
 
         # set up the context
-        dir_path = "/tmp/kalliope/tests/"
+        dir_path = "/tmp/intelora/tests/"
         file_name = "test_FileManager_fileRemove"
         file_path = os.path.join(dir_path, file_name)
         if os.path.exists(file_path):
@@ -120,7 +120,7 @@ class TestFileManager(unittest.TestCase):
         """
 
         # set up the context
-        dir_path = "/tmp/kalliope/tests/"
+        dir_path = "/tmp/intelora/tests/"
         file_name = "test_FileManager_filePathCreatable"
         file_path = os.path.join(dir_path, file_name)
         if os.path.exists(file_path):
@@ -147,7 +147,7 @@ class TestFileManager(unittest.TestCase):
         """
 
         # set up the context
-        dir_path = "/tmp/kalliope/tests/"
+        dir_path = "/tmp/intelora/tests/"
         file_name = "test_FileManager_fileIsPathExistsOrCreatable"
         file_path = os.path.join(dir_path, file_name)
         if os.path.exists(file_path):

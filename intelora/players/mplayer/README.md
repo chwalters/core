@@ -1,6 +1,6 @@
 ### Mplayer
 
-Default player of kalliope.
+Default player of intelora.
 This Player is based on the [mplayer engine](http://www.mplayerhq.hu/design7/news.html)
 
 ### Input parameters

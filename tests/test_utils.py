@@ -6,11 +6,11 @@ import os
 
 import sys
 
-from kalliope.core.Models.Neuron import Neuron
-from kalliope.neurons.say.say import Say
-from kalliope.core.Utils.Utils import Utils
+from intelora.core.Models.Neuron import Neuron
+from intelora.neurons.say.say import Say
+from intelora.core.Utils.Utils import Utils
 
-from kalliope.core.ConfigurationManager import SettingLoader
+from intelora.core.ConfigurationManager import SettingLoader
 
 
 class TestUtils(unittest.TestCase):
@@ -25,8 +25,8 @@ class TestUtils(unittest.TestCase):
         """
         Expect to get back the parent path file
         """
-        path_to_test = "../kalliope/core/Utils"
-        expected_result = os.path.normpath("../kalliope/core")
+        path_to_test = "../intelora/core/Utils"
+        expected_result = os.path.normpath("../intelora/core")
 
         self.assertEqual(Utils.get_current_file_parent_path(path_to_test),
                          expected_result,
@@ -36,8 +36,8 @@ class TestUtils(unittest.TestCase):
         """
         Expect to get back the parent parent path file
         """
-        path_to_test = "../kalliope/core/Utils"
-        expected_result = os.path.normpath("../kalliope")
+        path_to_test = "../intelora/core/Utils"
+        expected_result = os.path.normpath("../intelora")
 
         self.assertEqual(Utils.get_current_file_parent_parent_path(path_to_test),
                          expected_result,
@@ -48,12 +48,12 @@ class TestUtils(unittest.TestCase):
         Expect to load the proper file following the order :
             - Provided absolute path
             - Current user path + file_name
-            - /etc/kalliope + file_name
-            - /path/to/kalliope/ +file_name
+            - /etc/intelora + file_name
+            - /path/to/intelora/ +file_name
         """
         ###
         # Test the absolute path
-        dir_path = "/tmp/kalliope/tests/"
+        dir_path = "/tmp/intelora/tests/"
         file_name = "test_real_file_path"
         absolute_path_to_test = os.path.join(dir_path, file_name)
         expected_result = absolute_path_to_test
@@ -86,12 +86,12 @@ class TestUtils(unittest.TestCase):
             os.remove(file_name)
 
         ###
-        # test /etc/kalliope
+        # test /etc/intelora
         # /!\ need permissions
-        # dir_path = "/etc/kalliope/"
+        # dir_path = "/etc/intelora/"
         # file_name = "test_real_file_path"
         # path_to_test = os.path.join(dir_path,file_name)
-        # expected_result = "/etc/kalliope" + os.sep + file_name
+        # expected_result = "/etc/intelora" + os.sep + file_name
         # if not os.path.exists(dir_path):
         #     os.makedirs(dir_path)
         #
@@ -100,17 +100,17 @@ class TestUtils(unittest.TestCase):
         #
         # self.assertEquals(Utils.get_real_file_path(file_name),
         #                   expected_result,
-        #                   "Fail to match the /etc/kalliope path")
+        #                   "Fail to match the /etc/intelora path")
         # # Clean up
         # if os.path.exists(file_name):
         #     os.remove(file_name)
 
         ###
-        # /an/unknown/path/kalliope/
-        dir_path = "../kalliope/"
+        # /an/unknown/path/intelora/
+        dir_path = "../intelora/"
         file_name = "test_real_file_path"
         path_to_test = os.path.join(dir_path, file_name)
-        expected_result = os.path.normpath(os.getcwd() + os.sep + os.pardir + os.sep + "kalliope" + os.sep + file_name)
+        expected_result = os.path.normpath(os.getcwd() + os.sep + os.pardir + os.sep + "intelora" + os.sep + file_name)
         if not os.path.exists(dir_path):
             os.makedirs(dir_path)
 
@@ -119,7 +119,7 @@ class TestUtils(unittest.TestCase):
 
         self.assertEqual(Utils.get_real_file_path(file_name),
                          expected_result,
-                         "Fail to match the /an/unknown/path/kalliope path")
+                         "Fail to match the /an/unknown/path/intelora path")
         # Clean up
         if os.path.exists(expected_result):
             os.remove(expected_result)
