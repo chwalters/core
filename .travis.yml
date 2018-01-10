@@ -28,7 +28,7 @@ install:
 # command to run tests
 script:
 
-   - python intelora.py
+   - python intelora.py --run-order test_order
 #  - docker run -it --rm intelora-ubuntu1604
 #  - docker run -it --rm intelora-debian8
 #  - coverage run --source=intelora -m unittest discover
