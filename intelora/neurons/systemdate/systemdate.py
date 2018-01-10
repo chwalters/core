@@ -1,6 +1,6 @@
 import time
 
-from kalliope.core.NeuronModule import NeuronModule
+from intelora.core.NeuronModule import NeuronModule
 
 
 class Systemdate(NeuronModule):
