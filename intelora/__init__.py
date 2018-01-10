@@ -6,25 +6,25 @@ import logging
 import time
 
 from random import *
-from kalliope.core import ShellGui
-from kalliope.core import Utils
-from kalliope.core.ConfigurationManager import SettingLoader
-from kalliope.core.ConfigurationManager.BrainLoader import BrainLoader
-from kalliope.core.SignalLauncher import SignalLauncher
-from kalliope.core.Utils.RpiUtils import RpiUtils
+from intelora.core import ShellGui
+from intelora.core import Utils
+from intelora.core.ConfigurationManager import SettingLoader
+from intelora.core.ConfigurationManager.BrainLoader import BrainLoader
+from intelora.core.SignalLauncher import SignalLauncher
+from intelora.core.Utils.RpiUtils import RpiUtils
 from flask import Flask
-from kalliope.core.RestAPI.FlaskAPI import FlaskAPI
+from intelora.core.RestAPI.FlaskAPI import FlaskAPI
 
 from ._version import version_str
 import signal
 import sys
 
-from kalliope.core.ResourcesManager import ResourcesManager
-from kalliope.core.SynapseLauncher import SynapseLauncher
-from kalliope.core.OrderAnalyser import OrderAnalyser
+from intelora.core.ResourcesManager import ResourcesManager
+from intelora.core.SynapseLauncher import SynapseLauncher
+from intelora.core.OrderAnalyser import OrderAnalyser
 
 logging.basicConfig()
-logger = logging.getLogger("kalliope")
+logger = logging.getLogger("intelora")
 
 
 def signal_handler(signal, frame):
@@ -82,7 +82,7 @@ def main():
     # check if we want debug
     configure_logging(debug=parser.debug)
 
-    logger.debug("kalliope args: %s" % parser)
+    logger.debug("intelora args: %s" % parser)
 
     # by default, no brain file is set.
     # Use the default one: brain.yml in the root path
@@ -158,7 +158,7 @@ def main():
         if (parser.run_synapse is None) and (parser.run_order is None):
             # start rest api
             start_rest_api(settings, brain)
-            start_kalliope(settings, brain)
+            start_intelora(settings, brain)
 
     if parser.action == "gui":
         try:
@@ -173,7 +173,7 @@ class AppFilter(logging.Filter):
     Class used to add a custom entry into the logger
     """
     def filter(self, record):
-        record.app_version = "kalliope-%s" % version_str
+        record.app_version = "intelora-%s" % version_str
         return True
 
 
@@ -184,7 +184,7 @@ def configure_logging(debug=None):
     :param debug: If true, set the lof level to debug
 
     """
-    logger = logging.getLogger("kalliope")
+    logger = logging.getLogger("intelora")
     logger.addFilter(AppFilter())
     logger.propagate = False
     syslog = logging.StreamHandler()
@@ -237,7 +237,7 @@ def start_rest_api(settings, brain):
         flask_api.start()
 
 
-def start_kalliope(settings, brain):
+def start_intelora(settings, brain):
     """
     Start all signals declared in the brain
     """
