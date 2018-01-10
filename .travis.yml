@@ -1,3 +1,7 @@
+env:
+  global:
+    - CC_TEST_REPORTER_ID=3973d29c9191b3e9f1cca55d092c31d7c249b6bff79bba977f1944e6a7fa38cf
+
 language: python
 
 #services:
@@ -25,12 +29,20 @@ install:
   - pip install python2-pythondialog || pip install pythondialog
   - pip install coveralls
 
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+
 # command to run tests
 script:
    - python intelora.py start --run-order "hello"
 #  - docker run -it --rm intelora-ubuntu1604
 #  - docker run -it --rm intelora-debian8
 #  - coverage run --source=intelora -m unittest discover
+
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 
 after_success:
   coveralls
