@@ -1,10 +1,10 @@
-from kalliope.core.TTS.TTSModule import TTSModule, MissingTTSParameter
+from intelora.core.TTS.TTSModule import TTSModule, MissingTTSParameter
 import logging
 import sys
 import subprocess
 
 logging.basicConfig()
-logger = logging.getLogger("kalliope")
+logger = logging.getLogger("intelora")
 
 
 class Espeak(TTSModule):
