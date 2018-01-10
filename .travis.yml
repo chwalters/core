@@ -1,0 +1,39 @@
+language: python
+
+#services:
+#  - docker
+
+python:
+  - "2.7"
+  - "3.4"
+
+# command to install dependencies
+before_install:
+#- docker build --force-rm=true --build-arg TRAVIS_BRANCH=${TRAVIS_BRANCH} --build-arg TRAVIS_EVENT_TYPE=${TRAVIS_EVENT_TYPE} --build-arg TRAVIS_PULL_REQUEST_SLUG=${TRAVIS_PULL_REQUEST_SLUG} --build-arg TRAVIS_PULL_REQUEST_BRANCH=${TRAVIS_PULL_REQUEST_BRANCH} -t intelora-ubuntu1604 -f tests/docker/ubuntu_16_04.dockerfile .
+#- docker build --force-rm=true --build-arg TRAVIS_BRANCH=${TRAVIS_BRANCH} --build-arg TRAVIS_EVENT_TYPE=${TRAVIS_EVENT_TYPE} --build-arg TRAVIS_PULL_REQUEST_SLUG=${TRAVIS_PULL_REQUEST_SLUG} --build-arg TRAVIS_PULL_REQUEST_BRANCH=${TRAVIS_PULL_REQUEST_BRANCH} -t intelora-debian8 -f tests/docker/debian8.dockerfile .
+- sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu trusty main restricted universe multiverse"
+- sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu trusty-updates main restricted universe multiverse"
+- sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu trusty-backports main restricted universe multiverse"
+- sudo apt-get update
+- sudo apt-get install $(cat tests/requirements/deb-requirements.txt)
+- sudo apt-get install libstdc++6 libpython3.4-dev
+- wget https://bootstrap.pypa.io/get-pip.py
+- sudo python get-pip.py
+
+install:
+  - pip install -r tests/requirements/python-requirements.txt
+  - pip install python2-pythondialog || pip install pythondialog
+  - pip install coveralls
+
+# command to run tests
+script:
+   - python intelora.py start --run-order "hello"
+#  - docker run -it --rm intelora-ubuntu1604
+#  - docker run -it --rm intelora-debian8
+#  - coverage run --source=intelora -m unittest discover
+
+after_success:
+  coveralls
+
+notifications:
+    slack: intelora:xmCtDNSS8C1T1EKvBjATSXNA

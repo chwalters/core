@@ -1,0 +1,16 @@
+---
+  - name: "say-hello-en"
+    signals:
+      - order: "hello"
+    neurons:
+      - say:
+          message:
+            - "Hello Human"
+
+  - name: "default-synapse"
+    signals:
+      - order: "default-synapse-order"
+    neurons:
+      - say:
+          message:
+            - "Sorry, I can't understand your order"
