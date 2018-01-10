@@ -3,7 +3,7 @@ import os
 import subprocess
 
 logging.basicConfig()
-logger = logging.getLogger("kalliope")
+logger = logging.getLogger("intelora")
 
 MPLAYER_EXEC_PATH = "/usr/bin/mplayer"
 
