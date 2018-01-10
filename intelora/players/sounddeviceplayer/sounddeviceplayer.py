@@ -4,10 +4,10 @@ import logging
 import sounddevice as sd
 import soundfile as sf
 
-from kalliope.core.PlayerModule import PlayerModule
+from intelora.core.PlayerModule import PlayerModule
 
 logging.basicConfig()
-logger = logging.getLogger("kalliope")
+logger = logging.getLogger("intelora")
 
 FS = 48000
 

@@ -4,10 +4,10 @@ import wave
 
 import pyaudio
 
-from kalliope.core.PlayerModule import PlayerModule
+from intelora.core.PlayerModule import PlayerModule
 
 logging.basicConfig()
-logger = logging.getLogger("kalliope")
+logger = logging.getLogger("intelora")
 
 CHUNK = 1024
 
