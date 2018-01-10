@@ -67,7 +67,7 @@ class Cortex(with_metaclass(Singleton, object)):
         cls.temp = dict()
 
     @classmethod
-    def save_neuron_parameter_in_memory(cls, intelora, neuron_parameters):
+    def save_neuron_parameter_in_memory(cls, intelora_memory_dict, neuron_parameters):
         """
         receive a dict of value send by the child neuron
         save in intelora memory all value
