@@ -52,7 +52,7 @@ The topic send the status of a light. The received message would be "on" or off"
           - "The light is now {{ mqtt_subscriber_message }}"
 ```
 
-Kalliope output example:
+Intelora output example:
 ```
 The light is now on
 ```
@@ -73,7 +73,7 @@ In this example, the topic send a json payload that contain multiple information
           - "The temperature is now {{ mqtt_subscriber_message['temperature'] }}, humidity {{ mqtt_subscriber_message['humidity'] percents }}"
 ```
 
-Kalliope output example:
+Intelora output example:
 ```
 The temperature is now 25 degrees, humidity 30%
 ```

@@ -217,7 +217,7 @@ def get_list_signal_class_to_load(brain):
     for synapse in brain.synapses:
         for signal_object in synapse.signals:
             list_signal_class_name.add(signal_object.name)
-    logger.debug("[Kalliope entrypoint] List of signal class to load: %s" % list_signal_class_name)
+    logger.debug("[Intelora entrypoint] List of signal class to load: %s" % list_signal_class_name)
     return list_signal_class_name
 
 

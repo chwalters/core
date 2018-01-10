@@ -59,7 +59,7 @@ class Snowboy(Thread):
 
     def run(self):
         """
-        Start the snowboy thread and wait for a Kalliope trigger word
+        Start the snowboy thread and wait for a Intelora trigger word
         :return:
         """
         # start snowboy loop forever

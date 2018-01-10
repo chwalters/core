@@ -148,7 +148,7 @@ class ResourcesManager(object):
     @staticmethod
     def is_settings_ok(resources, dna):
         """
-        Test if required settings files in config of Kalliope are ok.
+        Test if required settings files in config of Intelora are ok.
         The resource object must not be empty
         Check id the use have set the an installation path in his settings for the target module type
         :param resources: the Resources model
@@ -308,14 +308,14 @@ class ResourcesManager(object):
     @staticmethod
     def _check_supported_version(current_version, supported_versions):
         """
-        The dna file contains supported Kalliope version for the module to install.
+        The dna file contains supported Intelora version for the module to install.
         Check if supported versions are match the current installed version. If not, ask the user to confirm the
         installation anyway
-        :param current_version: current version installed of Kalliope. E.g 0.4.0
+        :param current_version: current version installed of Intelora. E.g 0.4.0
         :param supported_versions: list of supported version
         :return: True if the version is supported or user has confirmed the installation
         """
-        logger.debug("[ResourcesManager] Current installed version of Kalliope: %s" % str(current_version))
+        logger.debug("[ResourcesManager] Current installed version of Intelora: %s" % str(current_version))
         logger.debug("[ResourcesManager] Module supported version: %s" % str(supported_versions))
 
         supported_version_found = False
@@ -332,9 +332,9 @@ class ResourcesManager(object):
 
         if not supported_version_found:
             # we ask the user if we want to install the module even if the version doesn't match
-            Utils.print_info("Current installed version of Kalliope: %s" % current_version)
+            Utils.print_info("Current installed version of Intelora: %s" % current_version)
             Utils.print_info("Module supported versions: %s" % str(supported_versions))
-            Utils.print_warning("The neuron seems to be not supported by your current version of Kalliope")
+            Utils.print_warning("The neuron seems to be not supported by your current version of Intelora")
             supported_version_found = Utils.query_yes_no("install it anyway?")
             logger.debug("[ResourcesManager] install it anyway user answer: %s" % supported_version_found)
 

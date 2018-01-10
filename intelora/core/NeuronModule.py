@@ -171,9 +171,9 @@ class NeuronModule(object):
 
             # process the audio only if the no_voice flag is false
             if self.no_voice:
-                logger.debug("[NeuronModule] no_voice is True, Kalliope is muted")
+                logger.debug("[NeuronModule] no_voice is True, Intelora is muted")
             else:
-                logger.debug("[NeuronModule] no_voice is False, make Kalliope speaking")
+                logger.debug("[NeuronModule] no_voice is False, make Intelora speaking")
                 # get the instance of the TTS module
                 tts_folder = None
                 if self.settings.resources:
@@ -182,13 +182,13 @@ class NeuronModule(object):
                                                                             module_name=self.tts.name,
                                                                             parameters=self.tts.parameters,
                                                                             resources_dir=tts_folder)
-                # Kalliope will talk, turn on the LED
+                # Intelora will talk, turn on the LED
                 self.switch_on_led_talking(rpi_settings=self.settings.rpi_settings, on=True)
 
                 # generate the audio file and play it
                 tts_module_instance.say(tts_message)
 
-                # Kalliope has finished to talk, turn off the LED
+                # Intelora has finished to talk, turn off the LED
                 self.switch_on_led_talking(rpi_settings=self.settings.rpi_settings, on=False)
 
     def _get_message_from_dict(self, message_dict):

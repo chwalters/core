@@ -93,7 +93,7 @@ And the playbook would be. Notice that we use `become: True`
 
 ## Note
 
-Ansible contains a lot of modules that can be useful for Kalliope
+Ansible contains a lot of modules that can be useful for Intelora
 
 - [Notification](http://docs.ansible.com/ansible/list_of_notification_modules.html): can be used to send a message to Pushbullet, IRC channel, Rocket Chat and a lot of other notification services
 - [Files](http://docs.ansible.com/ansible/list_of_files_modules.html): can be used to perform a backup or synchronize two file path

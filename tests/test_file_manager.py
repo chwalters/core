@@ -42,7 +42,7 @@ class TestFileManager(unittest.TestCase):
         dir_path = "/tmp/intelora/tests/"
         file_name = "test_FileManager_writeInFile"
         file_path = os.path.join(dir_path,file_name)
-        in_file_text = "[Kalliope] Testing the write_in_file method from Utils.FileManager"
+        in_file_text = "[Intelora] Testing the write_in_file method from Utils.FileManager"
         if os.path.exists(file_path):
             os.remove(file_path)
         if not os.path.exists(dir_path):
@@ -157,7 +157,7 @@ class TestFileManager(unittest.TestCase):
 
         # Test the file exist and creatable : return True
         with open(file_path, "wb") as file_open:
-            file_open.write(b"[Kalliope] Test Running the test_is_path_exists_or_creatable method")
+            file_open.write(b"[Intelora] Test Running the test_is_path_exists_or_creatable method")
             file_open.close()
         self.assertTrue(FileManager.is_path_exists_or_creatable(file_path),
                         "Fail to assert the file exist ")

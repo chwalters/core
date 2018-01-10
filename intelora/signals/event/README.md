@@ -5,7 +5,7 @@
 An **event** is a way to schedule the launching of a synapse periodically at fixed times, dates, or intervals.
 
 The event system is based on [APScheduler](http://apscheduler.readthedocs.io/en/latest/modules/triggers/cron.html) which it is itself based on [Linux crontab](https://en.wikipedia.org/wiki/Cron). 
-When you declare an event in the signal, Kalliope will schedule the launching of the target synapse.
+When you declare an event in the signal, Intelora will schedule the launching of the target synapse.
 
 The syntax of an event declaration in a synapse is the following
 ```yml
@@ -15,7 +15,7 @@ signals:
       parameter2: "value2"
 ```
 
-For example, if we want Kalliope to run the synapse every day a 8:30, the event will be declared like this:
+For example, if we want Intelora to run the synapse every day a 8:30, the event will be declared like this:
 ```yml
 - event:
     hour: "8"
@@ -59,7 +59,7 @@ Expressions can be used in value of each parameter. Multiple expression can be g
 
 ### Web clock radio
 
-Let's make a complete example. We want Kalliope to wake us up each morning of working day (Monday to friday) at 7:30 AM and:
+Let's make a complete example. We want Intelora to wake us up each morning of working day (Monday to friday) at 7:30 AM and:
 - Wish us good morning
 - Give us the time
 - Play our favourite web radio
@@ -84,12 +84,12 @@ The synapse in the brain would be
           async: True
 ```
 
-After setting up an event, you must restart Kalliope
+After setting up an event, you must restart Intelora
 ```bash
 python intelora.py start
 ```
 
-If the syntax is ok, Kalliope will show you each synapse that it has loaded in the crontab
+If the syntax is ok, Intelora will show you each synapse that it has loaded in the crontab
 ```
 Add synapse name "wake-up" to the scheduler: cron[day_of_week='1,2,3,4,5', hour='7', minute='30']
 Event loaded
@@ -98,7 +98,7 @@ Event loaded
 That's it, the synapse is now scheduled and will be started automatically.
 
 
-###  Make Kalliope say something on the third Friday of June, July, August, November and December at 00:00, 01:00, 02:00 and 03:00
+###  Make Intelora say something on the third Friday of June, July, August, November and December at 00:00, 01:00, 02:00 and 03:00
 
 ```yml
 - name: "wake-up"

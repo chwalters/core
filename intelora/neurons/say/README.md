@@ -2,7 +2,7 @@
 
 ## Synopsis
 
-This neuron is the mouth of Kalliope and uses the [TTS](../../Docs/tts.md) to say the given message.
+This neuron is the mouth of Intelora and uses the [TTS](../../Docs/tts.md) to say the given message.
 
 ## Installation
 
@@ -12,7 +12,7 @@ CORE NEURON : No installation needed.
 
 | parameter | required | default | choices | comment                                |
 |-----------|----------|---------|---------|----------------------------------------|
-| message   | YES      |         |         | A list of messages Kalliope could say  |
+| message   | YES      |         |         | A list of messages Intelora could say  |
 
 ## Return Values
 
@@ -32,7 +32,7 @@ Simple example :
           - "Hello Sir"     
 ```
 
-With a multiple choice list, Kalliope will pick one randomly:
+With a multiple choice list, Intelora will pick one randomly:
 
 ```yml
 - name: "Say-hello"
@@ -60,4 +60,4 @@ With an input value
 ## Notes
 
 > **Note:** The neuron does not return any values.
-> **Note:** Kalliope randomly takes a message from the list 
+> **Note:** Intelora randomly takes a message from the list 

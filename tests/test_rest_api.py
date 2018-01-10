@@ -63,7 +63,7 @@ class TestRestAPI(LiveServerTestCase):
         url = self.get_server_url() + "/"
         response = self.client.get(url)
         expected_content = {
-            "Kalliope version": "%s" % version_str
+            "Intelora version": "%s" % version_str
         }
         self.assertEqual(json.dumps(expected_content, sort_keys=True),
                          json.dumps(json.loads(response.get_data().decode('utf-8')), sort_keys=True))

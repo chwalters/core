@@ -99,17 +99,17 @@ class TestModels(unittest.TestCase):
     def test_Dna(self):
         # create DNA object
         dna1 = Dna(name="dna1", module_type="neuron", author="intelora",
-                   intelora_supported_version="0.4.4", tags="test")
+                   intelora_supported_version="1.0.0", tags="test")
 
         dna2 = Dna(name="dna2", module_type="neuron", author="community",
-                   intelora_supported_version="0.4.2", tags="other")
+                   intelora_supported_version="1.0.0", tags="other")
 
         # this dna is exactly the same as the first one
         dna3 = Dna(name="dna1", module_type="neuron", author="intelora",
-                   intelora_supported_version="0.4.4", tags="test")
+                   intelora_supported_version="1.0.0", tags="test")
 
         expected_result_serialize = {
-            'intelora_supported_version': '0.4.4',
+            'intelora_supported_version': '1.0.0',
             'tags': 'test',
             'type': 'neuron',
             'name': 'dna1',

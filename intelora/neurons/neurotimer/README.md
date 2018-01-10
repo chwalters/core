@@ -27,9 +27,9 @@ None
 
 **Scenario:** You are used to make a tea and want to know when it's time to remove the bag.
 > **You:** remember me to remove the bag of my tea<br>
-**Kalliope:** Alright<br>
+**Intelora:** Alright<br>
 3 minutes later..<br>
-**Kalliope:** your tea is ready
+**Intelora:** your tea is ready
 
 ```yml
 - name: "tea-bag"
@@ -55,9 +55,9 @@ None
 If your STT engine return integer when capturing a spoken order, you can set the time on the fly.
 **Scenario:** You are starting to cook something
 > **You:** notify me in 10 minutes<br>
-**Kalliope:** I'll notify you in 10 minutes<br>
+**Intelora:** I'll notify you in 10 minutes<br>
 10 minutes later..<br>
-**Kalliope:** You asked me to notify you
+**Intelora:** You asked me to notify you
 
 ```yml
 - name: "timer2"
@@ -83,9 +83,9 @@ If your STT engine return integer when capturing a spoken order, you can set the
 Passing argument to the called synapse with the `forwarded_parameters`.
 **Scenario:** You want to remember to do something
 > **You:** remind me to call mom in 15 minutes<br>
-**Kalliope:** I'll notify you in 15 minutes<br>
+**Intelora:** I'll notify you in 15 minutes<br>
 15 minutes later..<br>
-**Kalliope:** You asked me to remind you to call mom 15 minutes ago
+**Intelora:** You asked me to remind you to call mom 15 minutes ago
 ```yml
 - name: "remember-synapse"
   signals:

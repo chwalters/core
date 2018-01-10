@@ -2,7 +2,7 @@
 
 ## Synopsis
 
-Give the current time from the system where Kalliope is installed. Return a dict of parameters that can be used in a template.
+Give the current time from the system where Intelora is installed. Return a dict of parameters that can be used in a template.
 
 ## Installation
 
@@ -12,7 +12,7 @@ CORE NEURON : No installation needed.
 
 | parameter     | required | default | choices     | comment                                                               |
 |---------------|-----------|---------|-------------|-----------------------------------------------------------------------|
-| say_template  | no        |         |             | Say template used to make Kalliope speak out loud returned parameters |
+| say_template  | no        |         |             | Say template used to make Intelora speak out loud returned parameters |
 | file_template | no        |         |             | Like a say_template but from a file for complex usage                 |
 | cache         | no        | FALSE   | True, False | Should be set to False as audio output will changes at every minute   |
 

@@ -29,7 +29,7 @@ class LIFOBuffer(with_metaclass(Singleton, object)):
     """
     This class is a LIFO list of synapse to process where the last synapse list to enter will be the first synapse
     list to be processed.
-    This design is needed in order to use Kalliope from the API. 
+    This design is needed in order to use Intelora from the API. 
     Because we want to return an information when a Neuron is still processing and waiting for an answer from the user
     like with the Neurotransmitter neuron.
     

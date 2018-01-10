@@ -40,7 +40,7 @@ class TestSettingLoader(unittest.TestCase):
             'triggers': [{'snowboy': {'pmdl_file': 'trigger/snowboy/resources/intelora-FR-6samples.pmdl'}}],
             'players': [{'mplayer': {}}, {'pyalsaaudio': {"device": "default"}}],
             'speech_to_text': [{'google': {'language': 'fr-FR'}}],
-            'on_ready_answers': ['Kalliope is ready'],
+            'on_ready_answers': ['Intelora is ready'],
             'cache_path': '/tmp/intelora_tts_cache',
             'random_wake_up_answers': ['Oui monsieur?'],
             'on_ready_sounds': ['sounds/ding.wav', 'sounds/dong.wav'],
@@ -96,7 +96,7 @@ class TestSettingLoader(unittest.TestCase):
         settings_object.random_wake_up_answers = ['Oui monsieur?']
         settings_object.random_wake_up_sounds = ['sounds/ding.wav', 'sounds/dong.wav']
         settings_object.play_on_ready_notification = "never"
-        settings_object.on_ready_answers = ['Kalliope is ready']
+        settings_object.on_ready_answers = ['Intelora is ready']
         settings_object.on_ready_sounds = ['sounds/ding.wav', 'sounds/dong.wav']
         trigger1 = Trigger(name="snowboy",
                            parameters={'pmdl_file': 'trigger/snowboy/resources/intelora-FR-6samples.pmdl'})
@@ -173,7 +173,7 @@ class TestSettingLoader(unittest.TestCase):
         self.assertEqual(expected_random_wake_up_answers, sl._get_random_wake_up_answers(self.settings_dict))
 
     def test_get_on_ready_answers(self):
-        expected_on_ready_answers = ['Kalliope is ready']
+        expected_on_ready_answers = ['Intelora is ready']
         sl = SettingLoader(file_path=self.settings_file_to_test)
         self.assertEqual(expected_on_ready_answers, sl._get_on_ready_answers(self.settings_dict))
 

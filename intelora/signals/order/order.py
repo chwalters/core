@@ -104,7 +104,7 @@ class Order(Thread):
 
     def play_ready_sound_process(self):
         """
-        Play a sound when Kalliope is ready to be awaken at the first start
+        Play a sound when Intelora is ready to be awaken at the first start
         """
         logger.debug("[MainController] Entering state: %s" % self.state)
         if (not self.on_ready_notification_played_once and self.settings.play_on_ready_notification == "once") or \
@@ -125,7 +125,7 @@ class Order(Thread):
         """
         logger.debug("[MainController] Entering state: %s" % self.state)
         if self.is_trigger_muted:  # the user asked to mute inside the mute neuron
-            Utils.print_info("Kalliope is muted")
+            Utils.print_info("Intelora is muted")
             self.trigger_instance.pause()
         else:
             Utils.print_info("Waiting for trigger detection")
@@ -178,7 +178,7 @@ class Order(Thread):
 
     def play_wake_up_answer_thread(self):
         """
-        Play a sound or make Kalliope say something to notify the user that she has been awaken and now
+        Play a sound or make Intelora say something to notify the user that she has been awaken and now
         waiting for order
         """
         logger.debug("[MainController] Entering state: %s" % self.state)
@@ -236,11 +236,11 @@ class Order(Thread):
         if muted:
             self.trigger_instance.pause()
             self.is_trigger_muted = True
-            Utils.print_info("Kalliope now muted")
+            Utils.print_info("Intelora now muted")
         else:
             self.trigger_instance.unpause()
             self.is_trigger_muted = False
-            Utils.print_info("Kalliope now listening for trigger detection")
+            Utils.print_info("Intelora now listening for trigger detection")
 
     def get_mute_status(self):
         """
