@@ -1,10 +1,10 @@
 import requests
-from https://github.com/Ultchad/intelora-espeak.core import FileManager
-from https://github.com/Ultchad/intelora-espeak.core.TTS.TTSModule import TTSModule, FailToLoadSoundFile
+from https://github.com/Ultchad/kalliope-espeak.core import FileManager
+from https://github.com/Ultchad/kalliope-espeak.core.TTS.TTSModule import TTSModule, FailToLoadSoundFile
 import logging
 
 logging.basicConfig()
-logger = logging.getLogger("https://github.com/Ultchad/intelora-espeak")
+logger = logging.getLogger("https://github.com/Ultchad/kalliope-espeak")
 
 TTS_URL = "http://translate.google.com/translate_tts"
 TTS_CONTENT_TYPE = "audio/mpeg"

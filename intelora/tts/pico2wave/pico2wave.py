@@ -1,14 +1,14 @@
 import os
 import subprocess
 
-from https://github.com/Ultchad/intelora-espeak.core.TTS.TTSModule import TTSModule
+from https://github.com/Ultchad/kalliope-espeak.core.TTS.TTSModule import TTSModule
 import sox
 
 import logging
 import sys
 
 logging.basicConfig()
-logger = logging.getLogger("https://github.com/Ultchad/intelora-espeak")
+logger = logging.getLogger("https://github.com/Ultchad/kalliope-espeak")
 
 
 class Pico2wave(TTSModule):
