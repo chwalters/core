@@ -5,4 +5,4 @@
 [![PyPI](https://img.shields.io/pypi/pyversions/intelora.svg)](https://pypi.python.org/pypi/intelora/)
 [![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/Naereen/StrapDown.js/blob/master/LICENSE)
 [![GitHub contributors](https://img.shields.io/github/contributors/Naereen/StrapDown.js.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/contributors/)
-[![Slack Status](https://slack.intelora.com/badge.svg)](https://intelora.slack.com)
+[![Slack Status](https://slack.intelora.com/badge.svg)](https://intelora.com)
