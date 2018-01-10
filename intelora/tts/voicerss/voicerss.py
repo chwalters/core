@@ -1,10 +1,10 @@
 import requests
-from https://github.com/Ultchad/kalliope-espeak.core import FileManager
-from https://github.com/Ultchad/kalliope-espeak.core.TTS.TTSModule import TTSModule, FailToLoadSoundFile
+from https://github.com/apquinit/eSpeak.git import FileManager
+from https://github.com/apquinit/eSpeak.git.TTS.TTSModule import TTSModule, FailToLoadSoundFile
 import logging
 
 logging.basicConfig()
-logger = logging.getLogger("https://github.com/Ultchad/kalliope-espeak")
+logger = logging.getLogger("intelora")
 
 TTS_URL = "http://www.voicerss.org/controls/speech.ashx"
 TTS_CONTENT_TYPE = "audio/mpeg"

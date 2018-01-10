@@ -2,7 +2,7 @@ import unittest
 import sys
 from six import with_metaclass
 
-from kalliope.core.Models import Singleton
+from intelora.core.Models import Singleton
 
 
 class MyClass(with_metaclass(Singleton, object)):

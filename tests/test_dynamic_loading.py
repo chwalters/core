@@ -15,22 +15,22 @@ class TestDynamicLoading(unittest.TestCase):
     """
 
     def setUp(self):
-        # get current script directory path. We are in /an/unknown/path/kalliope/core/tests
+        # get current script directory path. We are in /an/unknown/path/intelora/core/tests
         cur_script_directory = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
-        # get parent dir. Now we are in /an/unknown/path/kalliope
+        # get parent dir. Now we are in /an/unknown/path/intelora
         root_dir = os.path.normpath(cur_script_directory + os.sep + os.pardir)
 
         # get the neuron dir
-        self.neurons_dir = os.path.normpath(root_dir + os.sep + "kalliope/neurons")
+        self.neurons_dir = os.path.normpath(root_dir + os.sep + "intelora/neurons")
 
         # get stt dir
-        self.stt_dir = os.path.normpath(root_dir + os.sep + "kalliope/stt")
+        self.stt_dir = os.path.normpath(root_dir + os.sep + "intelora/stt")
 
         # get tts dir
-        self.tts_dir = os.path.normpath(root_dir + os.sep + "kalliope/tts")
+        self.tts_dir = os.path.normpath(root_dir + os.sep + "intelora/tts")
 
         # get trigger dir
-        self.trigger_dir = os.path.normpath(root_dir + os.sep + "kalliope/trigger")
+        self.trigger_dir = os.path.normpath(root_dir + os.sep + "intelora/trigger")
 
     def test_packages_present(self):
         """
@@ -114,7 +114,7 @@ class TestDynamicLoading(unittest.TestCase):
         :param module_name: module name to load
         :return:
         """
-        module_name_with_path = "kalliope." + package_name + "." + module_name.lower() + "." + module_name.lower()
+        module_name_with_path = "intelora." + package_name + "." + module_name.lower() + "." + module_name.lower()
         mod = __import__(module_name_with_path, fromlist=[module_name])
         try:
             getattr(mod, module_name)

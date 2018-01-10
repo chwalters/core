@@ -6,12 +6,12 @@ from flask import Flask
 from flask_testing import LiveServerTestCase
 from mock import mock
 
-from kalliope._version import version_str
-from kalliope.core import LIFOBuffer
-from kalliope.core.ConfigurationManager import BrainLoader
-from kalliope.core.ConfigurationManager import SettingLoader
-from kalliope.core.Models import Singleton
-from kalliope.core.RestAPI.FlaskAPI import FlaskAPI
+from intelora._version import version_str
+from intelora.core import LIFOBuffer
+from intelora.core.ConfigurationManager import BrainLoader
+from intelora.core.ConfigurationManager import SettingLoader
+from intelora.core.Models import Singleton
+from intelora.core.RestAPI.FlaskAPI import FlaskAPI
 
 
 class TestRestAPI(LiveServerTestCase):
@@ -28,12 +28,12 @@ class TestRestAPI(LiveServerTestCase):
         # be sure that the singleton haven't been loaded before
         Singleton._instances = {}
         current_path = os.getcwd()
-        if "/Tests" in os.getcwd():
+        if "/tests" in os.getcwd():
             full_path_brain_to_test = current_path + os.sep + "brains/brain_test_api.yml"
             self.audio_file = "files/bonjour.wav"
         else:
-            full_path_brain_to_test = current_path + os.sep + "Tests/brains/brain_test_api.yml"
-            self.audio_file = "Tests/files/bonjour.wav"
+            full_path_brain_to_test = current_path + os.sep + "tests/brains/brain_test_api.yml"
+            self.audio_file = "tests/files/bonjour.wav"
 
         # rest api config
         sl = SettingLoader()
@@ -63,7 +63,7 @@ class TestRestAPI(LiveServerTestCase):
         url = self.get_server_url() + "/"
         response = self.client.get(url)
         expected_content = {
-            "Kalliope version": "%s" % version_str
+            "Intelora version": "%s" % version_str
         }
         self.assertEqual(json.dumps(expected_content, sort_keys=True),
                          json.dumps(json.loads(response.get_data().decode('utf-8')), sort_keys=True))
@@ -339,14 +339,14 @@ class TestRestAPI(LiveServerTestCase):
 
         with mock.patch("os.system") as mock_os_system:
             # Scenario 1 : input wav file
-            temp_file = "/tmp/kalliope/tempfile.wav"  # tempfile.NamedTemporaryFile(suffix=".wav")
+            temp_file = "/tmp/intelora/tempfile.wav"  # tempfile.NamedTemporaryFile(suffix=".wav")
             result_file = FlaskAPI._convert_to_wav(temp_file)
             self.assertEqual(temp_file, result_file)
             mock_os_system.assert_not_called()
 
             # Scenario 2 : input not a wav file
-            temp_file = "/tmp/kalliope/tempfile.amr"  # tempfile.NamedTemporaryFile(suffix=".wav")
-            expected_result = "/tmp/kalliope/tempfile.wav"
+            temp_file = "/tmp/intelora/tempfile.amr"  # tempfile.NamedTemporaryFile(suffix=".wav")
+            expected_result = "/tmp/intelora/tempfile.wav"
             result_file = FlaskAPI._convert_to_wav(temp_file)
             self.assertEqual(expected_result, result_file)
             mock_os_system.assert_called_once_with("avconv -y -i " + temp_file + " " + expected_result)

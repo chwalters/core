@@ -2,7 +2,7 @@
 
 ## Synopsis
 
-Run a shell command on the local system where Kalliope is installed.
+Run a shell command on the local system where Intelora is installed.
 
 ## Installation
 
@@ -13,7 +13,7 @@ CORE NEURON : No installation needed.
 | parameter | required | default | choices  | comment                                                                     |
 |-----------|----------|---------|----------|-----------------------------------------------------------------------------|
 | cmd       | yes      |         |          | The shell command to run                                                    |
-| async     | no       | False   |          | If True, Kalliope will not wait for the end of the execution of the command |
+| async     | no       | False   |          | If True, Intelora will not wait for the end of the execution of the command |
 | query     | no       | False   |          | An argument to send the script.                                             |
 
 
@@ -39,7 +39,7 @@ Simple that will create a file locally
           cmd: "touch ~/test.txt"    
 ```
 
-We want to launch our favorite web radio. This command, which it call mplayer, will block the entire Kalliope process if we 
+We want to launch our favorite web radio. This command, which it call mplayer, will block the entire Intelora process if we 
 wait for the result unless the mplayer process is killed. So we add async parameter. 
 ``` 
   - name: "run-web-radio"
@@ -67,7 +67,7 @@ Then, we can kill the player process with another synapse
           message: "web radio stopped"
 ```
 
-Make Kalliope add two number and speak out loud the result. Here you should hear "4".
+Make Intelora add two number and speak out loud the result. Here you should hear "4".
 ```
   - name: "get-the-result-of-the-addition"
     signals:
@@ -78,7 +78,7 @@ Make Kalliope add two number and speak out loud the result. Here you should hear
           say_template: "{{ output }}"
 ```
 
-Let's use a file template. We try to remove the file `~/test.txt` and make Kalliope give us the result depending of the 
+Let's use a file template. We try to remove the file `~/test.txt` and make Intelora give us the result depending of the 
 returned error code.
 If the file is present on the system, you will hear "The command has succeeded" and so the file has been deleted. 
 If you run it a second time, the command will fail as the file is not anymore present and so you should hear 

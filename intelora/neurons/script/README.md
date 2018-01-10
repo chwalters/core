@@ -2,7 +2,7 @@
 
 ## Synopsis
 
-This neuron runs a script located on the Kalliope system.
+This neuron runs a script located on the Intelora system.
 
 ## Installation
 
@@ -13,7 +13,7 @@ CORE NEURON : No installation needed.
 | parameter | required | default | choices | comment                                                                    |
 |-----------|----------|---------|---------|----------------------------------------------------------------------------|
 | path      | YES      |         |         | The path of the script to execute.                                         |
-| async     | NO       | FALSE   |         | If True, Kalliope will not wait for the end of the execution of the script |
+| async     | NO       | FALSE   |         | If True, Intelora will not wait for the end of the execution of the script |
 
 ## Return Values
 
@@ -36,7 +36,7 @@ Simple example :
           path: "/path/to/script.sh"    
 ```
 
-If the script can take a long time and you don't want to block the Kalliope process, you can run it in asynchronous mode.
+If the script can take a long time and you don't want to block the Intelora process, you can run it in asynchronous mode.
 Keep in mind that you cannot get any returned value with this mode.
 
 ```yml
@@ -49,7 +49,7 @@ Keep in mind that you cannot get any returned value with this mode.
           async: True
 ```
 
-Make Kalliope speak out loud the result of the script.
+Make Intelora speak out loud the result of the script.
 ```yml
   - name: "run-script-an-give-output"
     signals:
@@ -74,8 +74,8 @@ Path an argument to the script from your order
 
 ## Notes
 
-> **Note:** Kalliope must have the rights to run the script.
+> **Note:** Intelora must have the rights to run the script.
 
-> **Note:** Kalliope can be used to grant access to an user with lower rights ... !
+> **Note:** Intelora can be used to grant access to an user with lower rights ... !
 
 > **Note:** When 'async' flag is used, returned value are lost

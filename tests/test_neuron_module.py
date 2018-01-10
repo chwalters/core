@@ -2,11 +2,11 @@ import os
 import unittest
 import mock
 
-from kalliope.core.Models import Singleton
-from kalliope.core.Models.Tts import Tts
+from intelora.core.Models import Singleton
+from intelora.core.Models.Tts import Tts
 
-from kalliope import SettingLoader
-from kalliope.core.NeuronModule import NeuronModule, TemplateFileNotFoundException, TTSModuleNotFound
+from intelora import SettingLoader
+from intelora.core.NeuronModule import NeuronModule, TemplateFileNotFoundException, TTSModuleNotFound
 
 
 class TestNeuronModule(unittest.TestCase):
@@ -17,20 +17,20 @@ class TestNeuronModule(unittest.TestCase):
 
         self.expected_result = "hello, this is a replaced word"
         # this allow us to run the test from an IDE and from the root with python -m unittest tests.TestNeuronModule
-        if "/Tests" in os.getcwd():
+        if "/tests" in os.getcwd():
             self.file_template = "templates/template_test.j2"
         else:
-            self.file_template = "Tests/templates/template_test.j2"
+            self.file_template = "tests/templates/template_test.j2"
         self.say_template = "hello, this is a {{ test }}"
         self.message = {
             "test": "replaced word"
         }
         self.neuron_module_test = NeuronModule()
 
-        if "/Tests" in os.getcwd():
+        if "/tests" in os.getcwd():
             self.file_settings = "settings/settings_test.yml"
         else:
-            self.file_settings = "Tests/settings/settings_test.yml"
+            self.file_settings = "tests/settings/settings_test.yml"
         self.settings = SettingLoader(file_path=self.file_settings).settings
 
     def tearDown(self):
@@ -41,8 +41,8 @@ class TestNeuronModule(unittest.TestCase):
         Test the OrderListener thread is started
         """
 
-        with mock.patch("kalliope.core.OrderListener.start") as mock_orderListener_start:
-            with mock.patch("kalliope.core.OrderListener.join"):
+        with mock.patch("intelora.core.OrderListener.start") as mock_orderListener_start:
+            with mock.patch("intelora.core.OrderListener.join"):
                 def callback():
                     pass
 
@@ -121,11 +121,11 @@ class TestNeuronModule(unittest.TestCase):
         Test the serialisation of the neuron module
         """
         neuron_module = NeuronModule()
-        neuron_module.neuron_name = "kalliope"
+        neuron_module.neuron_name = "intelora"
         neuron_module.tts_message = "I am french"
 
         expected_result = {
-            'neuron_name': "kalliope",
+            'neuron_name': "intelora",
             'generated_message': "I am french"
         }
 

@@ -3,12 +3,12 @@ import unittest
 
 import mock
 
-from kalliope.core import LIFOBuffer
-from kalliope.core.ConfigurationManager import BrainLoader
-from kalliope.core.LIFOBuffer import Serialize, SynapseListAddedToLIFO
+from intelora.core import LIFOBuffer
+from intelora.core.ConfigurationManager import BrainLoader
+from intelora.core.LIFOBuffer import Serialize, SynapseListAddedToLIFO
 
-from kalliope.core.Models import Singleton
-from kalliope.core.Models.MatchedSynapse import MatchedSynapse
+from intelora.core.Models import Singleton
+from intelora.core.Models.MatchedSynapse import MatchedSynapse
 
 
 class TestLIFOBuffer(unittest.TestCase):
@@ -17,10 +17,10 @@ class TestLIFOBuffer(unittest.TestCase):
         # be sure the brain haven't been instantiated before
         Singleton._instances = dict()
 
-        if "/Tests" in os.getcwd():
+        if "/tests" in os.getcwd():
             self.brain_to_test = os.getcwd() + os.sep + "brains/lifo_buffer_test_brain.yml"
         else:
-            self.brain_to_test = os.getcwd() + os.sep + "Tests/brains/lifo_buffer_test_brain.yml"
+            self.brain_to_test = os.getcwd() + os.sep + "tests/brains/lifo_buffer_test_brain.yml"
 
         BrainLoader(file_path=self.brain_to_test)
         # create a new lifo buffer
@@ -46,7 +46,7 @@ class TestLIFOBuffer(unittest.TestCase):
         self.lifo_buffer.add_synapse_list_to_lifo(list_matched_synapse)
         self.lifo_buffer.api_response.user_order = order
 
-        with mock.patch("kalliope.core.TTS.TTSModule.generate_and_play"):
+        with mock.patch("intelora.core.TTS.TTSModule.generate_and_play"):
 
             response = self.lifo_buffer.execute(is_api_call=True)
 
@@ -176,7 +176,7 @@ class TestLIFOBuffer(unittest.TestCase):
         self.lifo_buffer.add_synapse_list_to_lifo(list_matched_synapse)
         self.lifo_buffer.api_response.user_order = order
 
-        with mock.patch("kalliope.core.TTS.TTSModule.generate_and_play"):
+        with mock.patch("intelora.core.TTS.TTSModule.generate_and_play"):
             # fist call to enter in the neurotransmitter
             self.lifo_buffer.execute(is_api_call=True)
 
@@ -227,7 +227,7 @@ class TestLIFOBuffer(unittest.TestCase):
         self.lifo_buffer.add_synapse_list_to_lifo(list_matched_synapse)
         self.lifo_buffer.api_response.user_order = "this is an order"
 
-        with mock.patch("kalliope.core.TTS.TTSModule.generate_and_play"):
+        with mock.patch("intelora.core.TTS.TTSModule.generate_and_play"):
             # fist call to enter in the neurotransmitter
             response = self.lifo_buffer.execute(is_api_call=True)
 
@@ -292,7 +292,7 @@ class TestLIFOBuffer(unittest.TestCase):
         list_matched_synapse = list()
         list_matched_synapse.append(matched_synapse)
 
-        with mock.patch("kalliope.core.LIFOBuffer._process_neuron_list"):
+        with mock.patch("intelora.core.LIFOBuffer._process_neuron_list"):
             self.lifo_buffer._process_synapse_list(list_matched_synapse)
             expected_response = {
                 'status': None,
@@ -316,7 +316,7 @@ class TestLIFOBuffer(unittest.TestCase):
                                          user_order=order,
                                          matched_order=order)
 
-        with mock.patch("kalliope.core.TTS.TTSModule.generate_and_play"):
+        with mock.patch("intelora.core.TTS.TTSModule.generate_and_play"):
             self.lifo_buffer.set_api_call(True)
             self.lifo_buffer._process_neuron_list(matched_synapse=matched_synapse)
             self.assertEqual("complete", self.lifo_buffer.api_response.status)
@@ -330,7 +330,7 @@ class TestLIFOBuffer(unittest.TestCase):
                                          matched_order=order)
 
         self.lifo_buffer.set_api_call(True)
-        with mock.patch("kalliope.core.TTS.TTSModule.generate_and_play"):
+        with mock.patch("intelora.core.TTS.TTSModule.generate_and_play"):
             with self.assertRaises(Serialize):
                 self.lifo_buffer._process_neuron_list(matched_synapse=matched_synapse)
 
@@ -344,7 +344,7 @@ class TestLIFOBuffer(unittest.TestCase):
 
         self.lifo_buffer.set_api_call(True)
         self.lifo_buffer.set_answer("synapse 6 answer")
-        with mock.patch("kalliope.core.TTS.TTSModule.generate_and_play"):
+        with mock.patch("intelora.core.TTS.TTSModule.generate_and_play"):
             self.assertRaises(SynapseListAddedToLIFO,
                               self.lifo_buffer._process_neuron_list(matched_synapse=matched_synapse))
 

@@ -1,12 +1,12 @@
 import unittest
 
 
-from kalliope.core.Models import Brain
-from kalliope.core.Models import Neuron
-from kalliope.core.Models import Synapse
-from kalliope.core.Models.MatchedSynapse import MatchedSynapse
-from kalliope.core.Models.Signal import Signal
-from kalliope.core.OrderAnalyser import OrderAnalyser
+from intelora.core.Models import Brain
+from intelora.core.Models import Neuron
+from intelora.core.Models import Synapse
+from intelora.core.Models.MatchedSynapse import MatchedSynapse
+from intelora.core.Models.Signal import Signal
+from intelora.core.OrderAnalyser import OrderAnalyser
 
 
 class TestOrderAnalyser(unittest.TestCase):

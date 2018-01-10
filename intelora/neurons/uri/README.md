@@ -99,7 +99,7 @@ And the `payload.json` would be (note that we don't need to escape any character
 {"title": "foo", "body": "bar", "userId": 1}
 ```
 
-A simple call to a deletion. Here we also ask Kalliope to tell use if request was a success through a template, depending on the returned status code.
+A simple call to a deletion. Here we also ask Intelora to tell use if request was a success through a template, depending on the returned status code.
 ```yml
   - name: "test-delete-url"
     signals:
@@ -130,7 +130,7 @@ Here, we ask the server to return us the user with ID number 42. We know that th
 }
 ```
 
-Here is the synapse we would use to make Kalliope speak out loud the name of the user and the name of his company
+Here is the synapse we would use to make Intelora speak out loud the name of the user and the name of his company
 ```yml
   - name: "test-get-url-with-template"
     signals:
@@ -150,7 +150,7 @@ The following template will make intelora read the content of the received json 
 The title is {{ content.title }}
 ```
 
-The following template will make Kalliope say if the request has been made with success or not depending on the returned status code.
+The following template will make Intelora say if the request has been made with success or not depending on the returned status code.
 ```
 {% if status_code==200 %}request complete{% else %}request failled{% endif %}
 ```

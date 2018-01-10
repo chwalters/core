@@ -1,10 +1,10 @@
 import unittest
 import mock
 
-from kalliope.core.Models.Settings import Settings
-from kalliope.core.TriggerLauncher import TriggerLauncher
+from intelora.core.Models.Settings import Settings
+from intelora.core.TriggerLauncher import TriggerLauncher
 
-from kalliope.core.Models.Trigger import Trigger
+from intelora.core.Models.Trigger import Trigger
 
 
 class TestTriggerLauncher(unittest.TestCase):
@@ -22,10 +22,10 @@ class TestTriggerLauncher(unittest.TestCase):
         Test the Trigger Launcher trying to run the trigger
         """
         trigger1 = Trigger("Trigger", {})
-        trigger2 = Trigger("Trigger2", {'pmdl_file': "trigger/snowboy/resources/kalliope-FR-6samples.pmdl"})
+        trigger2 = Trigger("Trigger2", {'pmdl_file': "trigger/snowboy/resources/intelora-FR-6samples.pmdl"})
         settings = Settings()
         settings.triggers = [trigger1, trigger2]
-        with mock.patch("kalliope.core.Utils.get_dynamic_class_instantiation") as mock_get_class_instantiation:
+        with mock.patch("intelora.core.Utils.get_dynamic_class_instantiation") as mock_get_class_instantiation:
             # Get the trigger 1
             settings.default_trigger_name = "Trigger"
             TriggerLauncher.get_trigger(settings=settings,

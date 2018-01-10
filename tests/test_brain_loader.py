@@ -2,13 +2,13 @@
 import os
 import unittest
 
-from kalliope.core.Models import Singleton, Signal
+from intelora.core.Models import Singleton, Signal
 
-from kalliope.core.ConfigurationManager import BrainLoader
-from kalliope.core.Models import Neuron
-from kalliope.core.Models import Synapse
-from kalliope.core.Models.Brain import Brain
-from kalliope.core.Models.Settings import Settings
+from intelora.core.ConfigurationManager import BrainLoader
+from intelora.core.Models import Neuron
+from intelora.core.Models import Synapse
+from intelora.core.Models.Brain import Brain
+from intelora.core.Models.Settings import Settings
 
 
 class TestBrainLoader(unittest.TestCase):
@@ -16,10 +16,10 @@ class TestBrainLoader(unittest.TestCase):
     def setUp(self):
         # be sure the brain haven't been instantiated before
         Singleton._instances = dict()
-        if "/Tests" in os.getcwd():
+        if "/tests" in os.getcwd():
             self.brain_to_test = os.getcwd() + os.sep + "brains/brain_test.yml"
         else:
-            self.brain_to_test = os.getcwd() + os.sep + "Tests/brains/brain_test.yml"
+            self.brain_to_test = os.getcwd() + os.sep + "tests/brains/brain_test.yml"
 
         self.expected_result = [
             {'signals': [{'order': 'test_order'}],
@@ -99,14 +99,14 @@ class TestBrainLoader(unittest.TestCase):
         variables = {
             "author": "Lamonf",
             "test_number": 60,
-            "name": "kalliope"
+            "name": "intelora"
         }
         st = Settings(variables=variables)
         bl = BrainLoader(file_path=self.brain_to_test)
         neurons_from_brain_loader = bl._get_neurons(neuron_list,
                                                     settings=st)
 
-        neuron = Neuron(name='say', parameters={'message': ['bonjour kalliope']})
+        neuron = Neuron(name='say', parameters={'message': ['bonjour intelora']})
 
         self.assertEqual([neuron], neurons_from_brain_loader)
 
@@ -274,13 +274,13 @@ class TestBrainLoader(unittest.TestCase):
         sentence = "i am {{name2}}"
         variables = {
             "name": "LaMonf",
-            "name2": "kalliope",
+            "name2": "intelora",
             "name3": u"kalliopé",
             "name4": 1
         }
         st = Settings(variables=variables)
 
-        expected_result = "i am kalliope"
+        expected_result = "i am intelora"
 
         self.assertEqual(BrainLoader._get_global_variable(sentence=sentence,
                                                           settings=st),

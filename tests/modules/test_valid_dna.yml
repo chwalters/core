@@ -1,10 +1,10 @@
 ---
   name: "neuron_test"
   type: "neuron"
-  author: "Kalliope project team"
+  author: "Alexander Paul P. Quinit"
 
-  kalliope_supported_version:
-    - 0.4
+  intelora_supported_version:
+    - 1.0
 
   tags:
     - "test"

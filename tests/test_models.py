@@ -2,26 +2,26 @@ import unittest
 import ast
 import mock
 
-from kalliope.core.Models.Player import Player
-from kalliope.core.Models.Signal import Signal
-from kalliope.core.Models.RecognitionOptions import RecognitionOptions
-from kalliope.core.Models.Tts import Tts
+from intelora.core.Models.Player import Player
+from intelora.core.Models.Signal import Signal
+from intelora.core.Models.RecognitionOptions import RecognitionOptions
+from intelora.core.Models.Tts import Tts
 
-from kalliope.core.Models.Trigger import Trigger
+from intelora.core.Models.Trigger import Trigger
 
-from kalliope.core.Models.Stt import Stt
+from intelora.core.Models.Stt import Stt
 
-from kalliope.core.Models.RestAPI import RestAPI
+from intelora.core.Models.RestAPI import RestAPI
 
-from kalliope.core.Models.Dna import Dna
+from intelora.core.Models.Dna import Dna
 
-from kalliope.core import LIFOBuffer
-from kalliope.core.Models.Settings import Settings
+from intelora.core import LIFOBuffer
+from intelora.core.Models.Settings import Settings
 
-from kalliope.core.Models import Neuron, Synapse, Brain, Resources, Singleton
+from intelora.core.Models import Neuron, Synapse, Brain, Resources, Singleton
 
-from kalliope.core.Models.APIResponse import APIResponse
-from kalliope.core.Models.MatchedSynapse import MatchedSynapse
+from intelora.core.Models.APIResponse import APIResponse
+from intelora.core.Models.MatchedSynapse import MatchedSynapse
 
 
 class TestModels(unittest.TestCase):
@@ -98,22 +98,22 @@ class TestModels(unittest.TestCase):
 
     def test_Dna(self):
         # create DNA object
-        dna1 = Dna(name="dna1", module_type="neuron", author="kalliope",
-                   kalliope_supported_version="0.4.4", tags="test")
+        dna1 = Dna(name="dna1", module_type="neuron", author="intelora",
+                   intelora_supported_version="1.0.0", tags="test")
 
         dna2 = Dna(name="dna2", module_type="neuron", author="community",
-                   kalliope_supported_version="0.4.2", tags="other")
+                   intelora_supported_version="1.0.0", tags="other")
 
         # this dna is exactly the same as the first one
-        dna3 = Dna(name="dna1", module_type="neuron", author="kalliope",
-                   kalliope_supported_version="0.4.4", tags="test")
+        dna3 = Dna(name="dna1", module_type="neuron", author="intelora",
+                   intelora_supported_version="1.0.0", tags="test")
 
         expected_result_serialize = {
-            'kalliope_supported_version': '0.4.4',
+            'intelora_supported_version': '1.0.0',
             'tags': 'test',
             'type': 'neuron',
             'name': 'dna1',
-            'author': 'kalliope'
+            'author': 'intelora'
         }
 
         self.assertDictEqual(expected_result_serialize, dna1.serialize())
@@ -139,7 +139,7 @@ class TestModels(unittest.TestCase):
         self.assertFalse(matched_synapse1.__eq__(matched_synapse2))
 
         # test neuron parameter loader is called
-        with mock.patch("kalliope.core.NeuronParameterLoader.get_parameters") as mock_get_parameters:
+        with mock.patch("intelora.core.NeuronParameterLoader.get_parameters") as mock_get_parameters:
 
             MatchedSynapse(matched_synapse=self.synapse1, matched_order=user_order, user_order=user_order)
             mock_get_parameters.assert_called_once_with(synapse_order=user_order,
@@ -260,12 +260,12 @@ class TestModels(unittest.TestCase):
                                 triggers=["snowboy"],
                                 players=["mplayer"],
                                 rest_api=rest_api1,
-                                cache_path="/tmp/kalliope",
+                                cache_path="/tmp/intelora",
                                 default_synapse="default_synapse",
                                 resources=None,
                                 variables={"key1": "val1"},
                                 recognition_options=recognition_options)
-            setting1.kalliope_version = "0.4.5"
+            setting1.intelora_version = "0.4.5"
 
             setting2 = Settings(default_tts_name="accapela",
                                 default_stt_name="bing",
@@ -280,12 +280,12 @@ class TestModels(unittest.TestCase):
                                 on_ready_sounds=None,
                                 triggers=["snowboy"],
                                 rest_api=rest_api1,
-                                cache_path="/tmp/kalliope_tmp",
+                                cache_path="/tmp/intelora_tmp",
                                 default_synapse="my_default_synapse",
                                 resources=None,
                                 variables={"key1": "val1"},
                                 recognition_options=recognition_options)
-            setting2.kalliope_version = "0.4.5"
+            setting2.intelora_version = "0.4.5"
 
             setting3 = Settings(default_tts_name="pico2wav",
                                 default_stt_name="google",
@@ -301,12 +301,12 @@ class TestModels(unittest.TestCase):
                                 triggers=["snowboy"],
                                 players=["mplayer"],
                                 rest_api=rest_api1,
-                                cache_path="/tmp/kalliope",
+                                cache_path="/tmp/intelora",
                                 default_synapse="default_synapse",
                                 resources=None,
                                 variables={"key1": "val1"},
                                 recognition_options=recognition_options)
-            setting3.kalliope_version = "0.4.5"
+            setting3.intelora_version = "0.4.5"
 
             expected_result_serialize = {
                 'default_synapse': 'default_synapse',
@@ -322,12 +322,12 @@ class TestModels(unittest.TestCase):
                     },
                 'play_on_ready_notification': False,
                 'default_stt_name': 'google',
-                'kalliope_version': '0.4.5',
+                'intelora_version': '0.4.5',
                 'random_wake_up_sounds': None,
                 'on_ready_answers': None,
                 'default_trigger_name': 'swoyboy',
                 'default_player_name': 'mplayer',
-                'cache_path': '/tmp/kalliope',
+                'cache_path': '/tmp/intelora',
                 'stts': ['stts'],
                 'machine': 'pumpkins',
                 'random_wake_up_answers': ['yes'],

@@ -1,6 +1,6 @@
 import unittest
 
-from kalliope.core.Cortex import Cortex
+from intelora.core.Cortex import Cortex
 
 
 class TestCortex(unittest.TestCase):
@@ -78,7 +78,7 @@ class TestCortex(unittest.TestCase):
 
         expected_dict = {"my_key_in_memory": "value1"}
 
-        Cortex.save_neuron_parameter_in_memory(kalliope_memory_dict=dict_val_to_save,
+        Cortex.save_neuron_parameter_in_memory(intelora_memory_dict=dict_val_to_save,
                                                neuron_parameters=neuron1_parameters)
 
         self.assertDictEqual(expected_dict, Cortex.memory)
@@ -94,7 +94,7 @@ class TestCortex(unittest.TestCase):
 
         expected_dict = {"my_key_in_memory": "string value1"}
 
-        Cortex.save_neuron_parameter_in_memory(kalliope_memory_dict=dict_val_to_save,
+        Cortex.save_neuron_parameter_in_memory(intelora_memory_dict=dict_val_to_save,
                                                neuron_parameters=neuron1_parameters)
 
         self.assertDictEqual(expected_dict, Cortex.memory)
@@ -110,12 +110,12 @@ class TestCortex(unittest.TestCase):
 
         expected_dict = {"my_key_in_memory": "string"}
 
-        Cortex.save_neuron_parameter_in_memory(kalliope_memory_dict=dict_val_to_save,
+        Cortex.save_neuron_parameter_in_memory(intelora_memory_dict=dict_val_to_save,
                                                neuron_parameters=neuron1_parameters)
 
         self.assertDictEqual(expected_dict, Cortex.memory)
 
-        # test with an empty list of parameter to save (no kalliope_memory set)
+        # test with an empty list of parameter to save (no intelora_memory set)
         self.setUp()  # clean
 
         neuron1_parameters = {
@@ -125,7 +125,7 @@ class TestCortex(unittest.TestCase):
 
         dict_val_to_save = None
 
-        Cortex.save_neuron_parameter_in_memory(kalliope_memory_dict=dict_val_to_save,
+        Cortex.save_neuron_parameter_in_memory(intelora_memory_dict=dict_val_to_save,
                                                neuron_parameters=neuron1_parameters)
 
         self.assertDictEqual(dict(), Cortex.memory)

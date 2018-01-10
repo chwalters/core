@@ -84,7 +84,7 @@ class FlaskAPI(threading.Thread):
     def get_main_page(self):
         logger.debug("[FlaskAPI] get_main_page")
         data = {
-            "Kalliope version": "%s" % version_str
+            "Intelora version": "%s" % version_str
         }
         return jsonify(data), 200
 
@@ -186,7 +186,7 @@ class FlaskAPI(threading.Thread):
     @requires_auth
     def run_synapse_by_order(self):
         """
-        Give an order to Kalliope via API like it was from a spoken one
+        Give an order to Intelora via API like it was from a spoken one
         Test with curl
         curl -i --user admin:secret -H "Content-Type: application/json" -X POST \
         -d '{"order":"my order"}' http://localhost:5000/synapses/start/order
@@ -230,7 +230,7 @@ class FlaskAPI(threading.Thread):
     @requires_auth
     def run_synapse_by_audio(self):
         """
-        Give an order to Kalliope with an audio file
+        Give an order to Intelora with an audio file
         Test with curl
         curl -i --user admin:secret -X POST  http://localhost:5000/synapses/start/audio -F "file=@/path/to/input.wav"
 

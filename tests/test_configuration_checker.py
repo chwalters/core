@@ -1,9 +1,9 @@
 import unittest
 
-from kalliope.core.ConfigurationManager.ConfigurationChecker import ConfigurationChecker, NoSynapeName, \
+from intelora.core.ConfigurationManager.ConfigurationChecker import ConfigurationChecker, NoSynapeName, \
                                                 NoSynapeNeurons, NoSynapeSignals, NoValidSignal, MultipleSameSynapseName
-from kalliope.core.Models import Synapse
-from kalliope.core.Utils.Utils import ModuleNotFoundError
+from intelora.core.Models import Synapse
+from intelora.core.Utils.Utils import ModuleNotFoundError
 
 
 class TestConfigurationChecker(unittest.TestCase):

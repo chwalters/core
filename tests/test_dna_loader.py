@@ -1,25 +1,25 @@
 import os
 import unittest
 
-from kalliope.core.ConfigurationManager.DnaLoader import DnaLoader
-from kalliope.core.Models.Dna import Dna
+from intelora.core.ConfigurationManager.DnaLoader import DnaLoader
+from intelora.core.Models.Dna import Dna
 
 
 class TestDnaLoader(unittest.TestCase):
 
     def setUp(self):
-        if "/Tests" in os.getcwd():
+        if "/tests" in os.getcwd():
             self.dna_test_file = "modules/test_valid_dna.yml"
         else:
-            self.dna_test_file = "Tests/modules/test_valid_dna.yml"
+            self.dna_test_file = "tests/modules/test_valid_dna.yml"
 
     def tearDown(self):
         pass
 
     def test_get_yaml_config(self):
 
-        expected_result = {'kalliope_supported_version': [0.4],
-                           'author': 'Kalliope project team',
+        expected_result = {'intelora_supported_version': [1.0],
+                           'author': 'Alexander Paul P. Quinit',
                            'type': 'neuron',
                            'name': 'neuron_test',
                            'tags': ['test']}
@@ -34,8 +34,8 @@ class TestDnaLoader(unittest.TestCase):
         expected_result.name = "neuron_test"
         expected_result.module_type = "neuron"
         expected_result.tags = ['test']
-        expected_result.author = 'Kalliope project team'
-        expected_result.kalliope_supported_version = [0.4]
+        expected_result.author = 'Alexander Paul P. Quinit'
+        expected_result.intelora_supported_version = [1.0]
 
         dna_to_test = DnaLoader(self.dna_test_file).get_dna()
 
@@ -48,17 +48,17 @@ class TestDnaLoader(unittest.TestCase):
         self.assertTrue(isinstance(dna_to_test, Dna))
 
         # test with a non valid DNA file
-        if "/Tests" in os.getcwd():
+        if "/tests" in os.getcwd():
             dna_invalid_test_file = "modules/test_invalid_dna.yml"
         else:
-            dna_invalid_test_file = "Tests/modules/test_invalid_dna.yml"
+            dna_invalid_test_file = "tests/modules/test_invalid_dna.yml"
 
         self.assertIsNone(DnaLoader(dna_invalid_test_file)._load_dna())
 
     def test_check_dna(self):
         # check with valid DNA file
-        test_dna = {'kalliope_supported_version': [0.4],
-                    'author': 'Kalliope project team',
+        test_dna = {'intelora_supported_version': [1.0],
+                    'author': 'Alexander Paul P. Quinit',
                     'type': 'neuron',
                     'name': 'neuron_test',
                     'tags': ['test']}
@@ -66,49 +66,49 @@ class TestDnaLoader(unittest.TestCase):
         self.assertTrue(DnaLoader(file_path=self.dna_test_file)._check_dna_file(test_dna))
 
         # invalid DNA file, no name
-        test_dna = {'kalliope_supported_version': [0.4],
-                    'author': 'Kalliope project team',
+        test_dna = {'intelora_supported_version': [1.0],
+                    'author': 'Alexander Paul P. Quinit',
                     'type': 'neuron',
                     'tags': ['test']}
 
         self.assertFalse(DnaLoader(file_path=self.dna_test_file)._check_dna_file(test_dna))
 
         # invalid DNA file, no type
-        test_dna = {'kalliope_supported_version': [0.4],
-                    'author': 'Kalliope project team',
+        test_dna = {'intelora_supported_version': [1.0],
+                    'author': 'Alexander Paul P. Quinit',
                     'name': 'neuron_test',
                     'tags': ['test']}
 
         self.assertFalse(DnaLoader(file_path=self.dna_test_file)._check_dna_file(test_dna))
 
         # invalid DNA, wrong type
-        test_dna = {'kalliope_supported_version': [0.4],
-                    'author': 'Kalliope project team',
+        test_dna = {'intelora_supported_version': [1.0],
+                    'author': 'Alexander Paul P. Quinit',
                     'type': 'doesnotexist',
                     'name': 'neuron_test',
                     'tags': ['test']}
 
         self.assertFalse(DnaLoader(file_path=self.dna_test_file)._check_dna_file(test_dna))
 
-        # invalid DNA, no kalliope_supported_version
-        test_dna = {'author': 'Kalliope project team',
+        # invalid DNA, no intelora_supported_version
+        test_dna = {'author': 'Alexander Paul P. Quinit',
                     'type': 'neuron',
                     'name': 'neuron_test',
                     'tags': ['test']}
         self.assertFalse(DnaLoader(file_path=self.dna_test_file)._check_dna_file(test_dna))
 
-        # invalid DNA, kalliope_supported_version empty
-        test_dna = {'kalliope_supported_version': [],
-                    'author': 'Kalliope project team',
+        # invalid DNA, intelora_supported_version empty
+        test_dna = {'intelora_supported_version': [],
+                    'author': 'Alexander Paul P. Quinit',
                     'type': 'neuron',
                     'name': 'neuron_test',
                     'tags': ['test']}
 
         self.assertFalse(DnaLoader(file_path=self.dna_test_file)._check_dna_file(test_dna))
 
-        # invalid DNA, kalliope_supported_version wrong format
-        test_dna = {'kalliope_supported_version': ['0.4.1'],
-                    'author': 'Kalliope project team',
+        # invalid DNA, intelora_supported_version wrong format
+        test_dna = {'intelora_supported_version': ['1.0.0'],
+                    'author': 'Alexander Paul P. Quinit',
                     'type': 'neuron',
                     'name': 'neuron_test',
                     'tags': ['test']}

@@ -2,7 +2,7 @@
 
 ## Synopsis
 
-This neuron exits the Kalliope process.
+This neuron exits the Intelora process.
 
 ## Installation
 

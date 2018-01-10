@@ -13,7 +13,7 @@ class RestAPI(object):
         :param password_protected: If true, the rest api will ask for an authentication
         :param login: login used if auth is activated
         :param password: password used if auth is activated
-        :param active: specify if the rest api is loaded on start with Kalliope
+        :param active: specify if the rest api is loaded on start with Intelora
         :param allowed_cors_origin: specify allowed origins
         """
         self.password_protected = password_protected

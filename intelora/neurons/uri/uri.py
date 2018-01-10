@@ -125,7 +125,7 @@ class Uri(NeuronModule):
     def post_processing_request(self, r):
         self.status_code = r.status_code
         self.content = r.content
-        # we try to load into a json object the content. So Kalliope can use it to talk
+        # we try to load into a json object the content. So Intelora can use it to talk
         try:
             self.content = json.loads(self.content.decode())
         except ValueError:

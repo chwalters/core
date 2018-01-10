@@ -4,27 +4,27 @@ import platform
 import shutil
 import unittest
 
-from kalliope.core.ConfigurationManager import SettingLoader
-from kalliope.core.Models import Singleton
-from kalliope.core.Models import Resources
-from kalliope.core.Models.Player import Player
-from kalliope.core.Models.RestAPI import RestAPI
-from kalliope.core.Models.Settings import Settings
-from kalliope.core.Models.Stt import Stt
-from kalliope.core.Models.RecognitionOptions import RecognitionOptions
-from kalliope.core.Models.Trigger import Trigger
-from kalliope.core.Models.Tts import Tts
+from intelora.core.ConfigurationManager import SettingLoader
+from intelora.core.Models import Singleton
+from intelora.core.Models import Resources
+from intelora.core.Models.Player import Player
+from intelora.core.Models.RestAPI import RestAPI
+from intelora.core.Models.Settings import Settings
+from intelora.core.Models.Stt import Stt
+from intelora.core.Models.RecognitionOptions import RecognitionOptions
+from intelora.core.Models.Trigger import Trigger
+from intelora.core.Models.Tts import Tts
 
 
 class TestSettingLoader(unittest.TestCase):
 
     def setUp(self):
-        # get current script directory path. We are in /an/unknown/path/kalliope/core/tests
+        # get current script directory path. We are in /an/unknown/path/intelora/core/tests
         cur_script_directory = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
-        # get parent dir. Now we are in /an/unknown/path/kalliope
+        # get parent dir. Now we are in /an/unknown/path/intelora
         root_dir = os.path.normpath(cur_script_directory + os.sep + os.pardir)
 
-        self.settings_file_to_test = root_dir + os.sep + "Tests/settings/settings_test.yml"
+        self.settings_file_to_test = root_dir + os.sep + "tests/settings/settings_test.yml"
 
         self.settings_dict = {
             'default_synapse': 'Default-synapse',
@@ -37,18 +37,18 @@ class TestSettingLoader(unittest.TestCase):
             'default_trigger': 'snowboy',
             'default_player': 'mplayer',
             'play_on_ready_notification': 'never',
-            'triggers': [{'snowboy': {'pmdl_file': 'trigger/snowboy/resources/kalliope-FR-6samples.pmdl'}}],
+            'triggers': [{'snowboy': {'pmdl_file': 'trigger/snowboy/resources/intelora-FR-6samples.pmdl'}}],
             'players': [{'mplayer': {}}, {'pyalsaaudio': {"device": "default"}}],
             'speech_to_text': [{'google': {'language': 'fr-FR'}}],
-            'on_ready_answers': ['Kalliope is ready'],
-            'cache_path': '/tmp/kalliope_tts_cache',
+            'on_ready_answers': ['Intelora is ready'],
+            'cache_path': '/tmp/intelora_tts_cache',
             'random_wake_up_answers': ['Oui monsieur?'],
             'on_ready_sounds': ['sounds/ding.wav', 'sounds/dong.wav'],
             'resource_directory': {
-                'stt': '/tmp/kalliope/tests/kalliope_resources_dir/stt',
-                'tts': '/tmp/kalliope/tests/kalliope_resources_dir/tts',
-                'neuron': '/tmp/kalliope/tests/kalliope_resources_dir/neurons',
-                'trigger': '/tmp/kalliope/tests/kalliope_resources_dir/trigger'},
+                'stt': '/tmp/intelora/tests/intelora_resources_dir/stt',
+                'tts': '/tmp/intelora/tests/intelora_resources_dir/tts',
+                'neuron': '/tmp/intelora/tests/intelora_resources_dir/neurons',
+                'trigger': '/tmp/intelora/tests/intelora_resources_dir/trigger'},
             'default_text_to_speech': 'pico2wave',
             'default_speech_to_text': 'google',
             'random_wake_up_sounds': ['sounds/ding.wav', 'sounds/dong.wav'],
@@ -56,18 +56,18 @@ class TestSettingLoader(unittest.TestCase):
                 {'pico2wave': {'cache': True, 'language': 'fr-FR'}},
                 {'voxygen': {'voice': 'Agnes', 'cache': True}}
             ],
-            'var_files': ["../Tests/settings/variables.yml"]
+            'var_files': ["../tests/settings/variables.yml"]
         }
 
         # Init the folders, otherwise it raises an exceptions
-        os.makedirs("/tmp/kalliope/tests/kalliope_resources_dir/neurons")
-        os.makedirs("/tmp/kalliope/tests/kalliope_resources_dir/stt")
-        os.makedirs("/tmp/kalliope/tests/kalliope_resources_dir/tts")
-        os.makedirs("/tmp/kalliope/tests/kalliope_resources_dir/trigger")
+        os.makedirs("/tmp/intelora/tests/intelora_resources_dir/neurons")
+        os.makedirs("/tmp/intelora/tests/intelora_resources_dir/stt")
+        os.makedirs("/tmp/intelora/tests/intelora_resources_dir/tts")
+        os.makedirs("/tmp/intelora/tests/intelora_resources_dir/trigger")
 
     def tearDown(self):
         # Cleanup
-        shutil.rmtree('/tmp/kalliope/tests/kalliope_resources_dir')
+        shutil.rmtree('/tmp/intelora/tests/intelora_resources_dir')
 
         Singleton._instances = {}
 
@@ -96,10 +96,10 @@ class TestSettingLoader(unittest.TestCase):
         settings_object.random_wake_up_answers = ['Oui monsieur?']
         settings_object.random_wake_up_sounds = ['sounds/ding.wav', 'sounds/dong.wav']
         settings_object.play_on_ready_notification = "never"
-        settings_object.on_ready_answers = ['Kalliope is ready']
+        settings_object.on_ready_answers = ['Intelora is ready']
         settings_object.on_ready_sounds = ['sounds/ding.wav', 'sounds/dong.wav']
         trigger1 = Trigger(name="snowboy",
-                           parameters={'pmdl_file': 'trigger/snowboy/resources/kalliope-FR-6samples.pmdl'})
+                           parameters={'pmdl_file': 'trigger/snowboy/resources/intelora-FR-6samples.pmdl'})
         settings_object.triggers = [trigger1]
         player1 = Player(name="mplayer", parameters={})
         player2 = Player(name="pyalsaaudio", parameters={"device": "default"})
@@ -107,17 +107,17 @@ class TestSettingLoader(unittest.TestCase):
         settings_object.rest_api = RestAPI(password_protected=True, active=True,
                                            login="admin", password="secret", port=5000,
                                            allowed_cors_origin=False)
-        settings_object.cache_path = '/tmp/kalliope_tts_cache'
+        settings_object.cache_path = '/tmp/intelora_tts_cache'
         settings_object.default_synapse = 'Default-synapse'
-        resources = Resources(neuron_folder="/tmp/kalliope/tests/kalliope_resources_dir/neurons",
-                              stt_folder="/tmp/kalliope/tests/kalliope_resources_dir/stt",
-                              tts_folder="/tmp/kalliope/tests/kalliope_resources_dir/tts",
-                              trigger_folder="/tmp/kalliope/tests/kalliope_resources_dir/trigger")
+        resources = Resources(neuron_folder="/tmp/intelora/tests/intelora_resources_dir/neurons",
+                              stt_folder="/tmp/intelora/tests/intelora_resources_dir/stt",
+                              tts_folder="/tmp/intelora/tests/intelora_resources_dir/tts",
+                              trigger_folder="/tmp/intelora/tests/intelora_resources_dir/trigger")
         settings_object.resources = resources
         settings_object.variables = {
             "author": "Lamonf",
             "test_number": 60,
-            "test": "kalliope"
+            "test": "intelora"
         }
         settings_object.machine = platform.machine()
         settings_object.recognition_options = RecognitionOptions()
@@ -155,7 +155,7 @@ class TestSettingLoader(unittest.TestCase):
 
     def test_get_triggers(self):
         trigger1 = Trigger(name="snowboy",
-                           parameters={'pmdl_file': 'trigger/snowboy/resources/kalliope-FR-6samples.pmdl'})
+                           parameters={'pmdl_file': 'trigger/snowboy/resources/intelora-FR-6samples.pmdl'})
         sl = SettingLoader(file_path=self.settings_file_to_test)
         self.assertEqual([trigger1], sl._get_triggers(self.settings_dict))
 
@@ -173,7 +173,7 @@ class TestSettingLoader(unittest.TestCase):
         self.assertEqual(expected_random_wake_up_answers, sl._get_random_wake_up_answers(self.settings_dict))
 
     def test_get_on_ready_answers(self):
-        expected_on_ready_answers = ['Kalliope is ready']
+        expected_on_ready_answers = ['Intelora is ready']
         sl = SettingLoader(file_path=self.settings_file_to_test)
         self.assertEqual(expected_on_ready_answers, sl._get_on_ready_answers(self.settings_dict))
 
@@ -191,7 +191,7 @@ class TestSettingLoader(unittest.TestCase):
         self.assertEqual(expected_rest_api, sl._get_rest_api(self.settings_dict))
 
     def test_get_cache_path(self):
-        expected_cache_path = '/tmp/kalliope_tts_cache'
+        expected_cache_path = '/tmp/intelora_tts_cache'
         sl = SettingLoader(file_path=self.settings_file_to_test)
         self.assertEqual(expected_cache_path, sl._get_cache_path(self.settings_dict))
 
@@ -202,10 +202,10 @@ class TestSettingLoader(unittest.TestCase):
 
     def test_get_resources(self):
 
-        resources = Resources(neuron_folder="/tmp/kalliope/tests/kalliope_resources_dir/neurons",
-                              stt_folder="/tmp/kalliope/tests/kalliope_resources_dir/stt",
-                              tts_folder="/tmp/kalliope/tests/kalliope_resources_dir/tts",
-                              trigger_folder="/tmp/kalliope/tests/kalliope_resources_dir/trigger")
+        resources = Resources(neuron_folder="/tmp/intelora/tests/intelora_resources_dir/neurons",
+                              stt_folder="/tmp/intelora/tests/intelora_resources_dir/stt",
+                              tts_folder="/tmp/intelora/tests/intelora_resources_dir/tts",
+                              trigger_folder="/tmp/intelora/tests/intelora_resources_dir/trigger")
         expected_resource = resources
         sl = SettingLoader(file_path=self.settings_file_to_test)
         self.assertEqual(expected_resource, sl._get_resources(self.settings_dict))
@@ -214,7 +214,7 @@ class TestSettingLoader(unittest.TestCase):
         expected_result = {
             "author": "Lamonf",
             "test_number": 60,
-            "test": "kalliope"
+            "test": "intelora"
         }
         sl = SettingLoader(file_path=self.settings_file_to_test)
         self.assertEqual(expected_result,

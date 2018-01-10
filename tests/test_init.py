@@ -6,7 +6,7 @@ import sys
 
 import mock
 
-from kalliope import parse_args, configure_logging, main
+from intelora import parse_args, configure_logging, main
 
 
 class TestInit(unittest.TestCase):
@@ -27,7 +27,7 @@ class TestInit(unittest.TestCase):
         self.assertEqual(parser.run_order, 'my order')
 
     def test_configure_logging(self):
-        logger = logging.getLogger("kalliope")
+        logger = logging.getLogger("intelora")
         # Level 10 = DEBUG
         configure_logging(debug=True)
         self.assertEqual(logger.getEffectiveLevel(), 10)
@@ -41,65 +41,65 @@ class TestInit(unittest.TestCase):
         logger.disabled = True
 
     def test_main(self):
-        # test start kalliope
-        sys.argv = ['kalliope.py', 'start']
-        with mock.patch('kalliope.start_rest_api') as mock_rest_api:
-            with mock.patch('kalliope.start_kalliope') as mock_start_kalliope:
+        # test start intelora
+        sys.argv = ['intelora.py', 'start']
+        with mock.patch('intelora.start_rest_api') as mock_rest_api:
+            with mock.patch('intelora.start_intelora') as mock_start_intelora:
                 mock_rest_api.return_value = None
                 main()
                 mock_rest_api.assert_called()
-                mock_start_kalliope.assert_called()
+                mock_start_intelora.assert_called()
 
         # test start gui
-        sys.argv = ['kalliope.py', 'gui']
-        with mock.patch('kalliope.core.ShellGui.__init__') as mock_shell_gui:
+        sys.argv = ['intelora.py', 'gui']
+        with mock.patch('intelora.core.ShellGui.__init__') as mock_shell_gui:
             mock_shell_gui.return_value = None
             main()
             mock_shell_gui.assert_called()
 
         # test run_synapse
-        sys.argv = ['kalliope.py', 'start', '--run-synapse', 'synapse_name']
-        with mock.patch('kalliope.core.SynapseLauncher.start_synapse_by_name') as mock_synapse_launcher:
+        sys.argv = ['intelora.py', 'start', '--run-synapse', 'synapse_name']
+        with mock.patch('intelora.core.SynapseLauncher.start_synapse_by_name') as mock_synapse_launcher:
             mock_synapse_launcher.return_value = None
             main()
             mock_synapse_launcher.assert_called()
 
         # test run order
-        sys.argv = ['kalliope.py', 'start', '--run-order', 'my order']
-        with mock.patch('kalliope.core.SynapseLauncher.run_matching_synapse_from_order') as mock_synapse_launcher:
+        sys.argv = ['intelora.py', 'start', '--run-order', 'my order']
+        with mock.patch('intelora.core.SynapseLauncher.run_matching_synapse_from_order') as mock_synapse_launcher:
             mock_synapse_launcher.return_value = None
             main()
             mock_synapse_launcher.assert_called()
 
         # action doesn't exist
-        sys.argv = ['kalliope.py', 'non_existing_action']
+        sys.argv = ['intelora.py', 'non_existing_action']
         with self.assertRaises(SystemExit):
             main()
 
         # install
-        sys.argv = ['kalliope.py', 'install', '--git-url', 'https://my_url']
-        with mock.patch('kalliope.core.ResourcesManager.install') as mock_resource_manager:
+        sys.argv = ['intelora.py', 'install', '--git-url', 'https://my_url']
+        with mock.patch('intelora.core.ResourcesManager.install') as mock_resource_manager:
             mock_resource_manager.return_value = None
             main()
             mock_resource_manager.assert_called()
 
         # install, no URL
-        sys.argv = ['kalliope.py', 'install']
+        sys.argv = ['intelora.py', 'install']
         with self.assertRaises(SystemExit):
             main()
 
-        sys.argv = ['kalliope.py', 'install', '--git-url']
+        sys.argv = ['intelora.py', 'install', '--git-url']
         with self.assertRaises(SystemExit):
             main()
 
         # uninstall
-        sys.argv = ['kalliope.py', 'uninstall', '--neuron-name', 'neuron_name']
-        with mock.patch('kalliope.core.ResourcesManager.uninstall') as mock_resource_manager:
+        sys.argv = ['intelora.py', 'uninstall', '--neuron-name', 'neuron_name']
+        with mock.patch('intelora.core.ResourcesManager.uninstall') as mock_resource_manager:
             mock_resource_manager.return_value = None
             main()
             mock_resource_manager.assert_called()
 
-        sys.argv = ['kalliope.py', 'uninstall']
+        sys.argv = ['intelora.py', 'uninstall']
         with self.assertRaises(SystemExit):
             main()
 
