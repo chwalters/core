@@ -3,11 +3,11 @@ import re
 
 import requests
 
-from kalliope.core import FileManager
-from kalliope.core.TTS.TTSModule import TTSModule, FailToLoadSoundFile, MissingTTSParameter
+from intelora.core import FileManager
+from intelora.core.TTS.TTSModule import TTSModule, FailToLoadSoundFile, MissingTTSParameter
 
 logging.basicConfig()
-logger = logging.getLogger("kalliope")
+logger = logging.getLogger("intelora")
 
 TTS_URL = "https://acapela-box.com/AcaBox/dovaas.php"
 TTS_CONTENT_TYPE = "audio/mpeg"

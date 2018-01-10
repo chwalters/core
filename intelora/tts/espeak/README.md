@@ -6,7 +6,7 @@ This TTS is based on the eSpeak engine
 
 ## Installation
 
-    kalliope install --git-url "https://github.com/Ultchad/kalliope-espeak.git"
+    intelora install --git-url "https://github.com/Ultchad/kalliope-espeak.git"
 
 ## Options
 
