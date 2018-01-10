@@ -1,2 +1,2 @@
-from kalliope.core.Utils.Utils import Utils
-from kalliope.core.Utils.FileManager import FileManager
+from intelora.core.Utils.Utils import Utils
+from intelora.core.Utils.FileManager import FileManager

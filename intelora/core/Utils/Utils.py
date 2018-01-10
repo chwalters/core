@@ -7,7 +7,7 @@ import re
 import six
 
 logging.basicConfig()
-logger = logging.getLogger("kalliope")
+logger = logging.getLogger("intelora")
 
 
 def pipe_print(line):
@@ -112,7 +112,7 @@ class Utils(object):
         :param resources_dir: the resource directory to check for external resources
         :return:
         """
-        package_path = "kalliope." + package_name + "." + module_name.lower() + "." + module_name.lower()
+        package_path = "intelora." + package_name + "." + module_name.lower() + "." + module_name.lower()
         logger.debug("[Utils]-> get_dynamic_class_instantiation : package path : %s" % (package_path))
         if resources_dir is not None:
             neuron_resource_path = resources_dir + os.sep + module_name.lower() \
@@ -164,9 +164,9 @@ class Utils(object):
         If the path is an absolute on, we return it directly.
 
         If the path is relative, we try to get the full path in this order:
-        - from the current directory where kalliope has been called + the file_path_to_test.
-        Eg: /home/me/Documents/kalliope_config
-        - from /etc/kalliope + file_path_to_test
+        - from the current directory where intelora has been called + the file_path_to_test.
+        Eg: /home/me/Documents/intelora_config
+        - from /etc/intelora + file_path_to_test
         - from the default file passed as <file_name> at the root of the project
 
         :param file_path_to_test file path to test
@@ -178,9 +178,9 @@ class Utils(object):
             current_script_path = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
             path_order = {
                 1: os.getcwd() + os.sep + file_path_to_test,
-                2: "/etc/kalliope" + os.sep + file_path_to_test,
-                # In this case 'get_current_file_parent_parent_path' is corresponding to kalliope root path
-                # from /an/unknown/path/kalliope/kalliope/core/Utils to /an/unknown/path/kalliope/kalliope
+                2: "/etc/intelora" + os.sep + file_path_to_test,
+                # In this case 'get_current_file_parent_parent_path' is corresponding to intelora root path
+                # from /an/unknown/path/intelora/intelora/core/Utils to /an/unknown/path/intelora/intelora
                 3: cls.get_current_file_parent_parent_path(current_script_path) + os.sep + file_path_to_test
             }
 

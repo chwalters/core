@@ -5,13 +5,13 @@ import logging
 
 from dialog import Dialog
 
-from kalliope.core import OrderListener
-from kalliope.core.ConfigurationManager import SettingLoader
-from kalliope.core.SynapseLauncher import SynapseLauncher
-from kalliope.neurons.say.say import Say
+from intelora.core import OrderListener
+from intelora.core.ConfigurationManager import SettingLoader
+from intelora.core.SynapseLauncher import SynapseLauncher
+from intelora.neurons.say.say import Say
 
 logging.basicConfig()
-logger = logging.getLogger("kalliope")
+logger = logging.getLogger("intelora")
 
 
 class ShellGui:

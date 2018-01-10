@@ -1,10 +1,10 @@
-from kalliope.core.Cortex import Cortex
-from kalliope.core.Utils import Utils
+from intelora.core.Cortex import Cortex
+from intelora.core.Utils import Utils
 
 import logging
 
 logging.basicConfig()
-logger = logging.getLogger("kalliope")
+logger = logging.getLogger("intelora")
 
 
 class NeuronParameterLoader(object):

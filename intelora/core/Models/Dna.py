@@ -2,11 +2,11 @@
 
 class Dna(object):
 
-    def __init__(self, name=None, module_type=None, author=None, kalliope_supported_version=None, tags=None):
+    def __init__(self, name=None, module_type=None, author=None, intelora_supported_version=None, tags=None):
         self.name = name
         self.module_type = module_type  # type is a reserved python
         self.author = author
-        self.kalliope_supported_version = kalliope_supported_version
+        self.intelora_supported_version = intelora_supported_version
         self.tags = tags
 
     def serialize(self):
@@ -20,7 +20,7 @@ class Dna(object):
             'name': self.name,
             'type': self.module_type,
             'author': self.author,
-            'kalliope_supported_version': self.kalliope_supported_version,
+            'intelora_supported_version': self.intelora_supported_version,
             'tags': self.tags
         }
 

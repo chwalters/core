@@ -6,13 +6,13 @@ import subprocess
 
 import six
 
-from kalliope.core.ConfigurationManager import SettingLoader
-from kalliope.core.PlayerLauncher import PlayerLauncher
-from kalliope.core.Utils.FileManager import FileManager
-from kalliope.core import Utils
+from intelora.core.ConfigurationManager import SettingLoader
+from intelora.core.PlayerLauncher import PlayerLauncher
+from intelora.core.Utils.FileManager import FileManager
+from intelora.core import Utils
 
 logging.basicConfig()
-logger = logging.getLogger("kalliope")
+logger = logging.getLogger("intelora")
 
 
 class MissingTTSParameter(Exception):
@@ -120,7 +120,7 @@ class TTSModule(object):
         </path/in/settings>/<tts.name>/tts.parameter["language"]/tts.parameter["voice"]/<md5_of_sentence.tts
 
         E.g:
-        /tmp/kalliope/acapela/fr/abcd12345.tts
+        /tmp/intelora/acapela/fr/abcd12345.tts
 
         :return: path String
         """

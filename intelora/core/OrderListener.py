@@ -4,11 +4,11 @@ from threading import Thread
 
 from cffi import FFI as _FFI
 
-from kalliope.core.Utils.Utils import Utils
-from kalliope.core.ConfigurationManager import SettingLoader
+from intelora.core.Utils.Utils import Utils
+from intelora.core.ConfigurationManager import SettingLoader
 
 logging.basicConfig()
-logger = logging.getLogger("kalliope")
+logger = logging.getLogger("intelora")
 
 
 class OrderListener(Thread):

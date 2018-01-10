@@ -1,13 +1,13 @@
 import logging
 from six import with_metaclass
 
-from kalliope.core.Cortex import Cortex
-from kalliope.core.NeuronLauncher import NeuronLauncher
-from kalliope.core.Models import Singleton
-from kalliope.core.Models.APIResponse import APIResponse
+from intelora.core.Cortex import Cortex
+from intelora.core.NeuronLauncher import NeuronLauncher
+from intelora.core.Models import Singleton
+from intelora.core.Models.APIResponse import APIResponse
 
 logging.basicConfig()
-logger = logging.getLogger("kalliope")
+logger = logging.getLogger("intelora")
 
 
 class Serialize(Exception):

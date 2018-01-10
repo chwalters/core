@@ -2,24 +2,24 @@ import logging
 import os
 from six import with_metaclass
 
-from kalliope.core.Models.RpiSettings import RpiSettings
-from kalliope.core.Models.RecognitionOptions import RecognitionOptions
+from intelora.core.Models.RpiSettings import RpiSettings
+from intelora.core.Models.RecognitionOptions import RecognitionOptions
 from .YAMLLoader import YAMLLoader
-from kalliope.core.Models.Resources import Resources
-from kalliope.core.Utils.Utils import Utils
-from kalliope.core.Models import Singleton
-from kalliope.core.Models.RestAPI import RestAPI
-from kalliope.core.Models.Settings import Settings
-from kalliope.core.Models.Stt import Stt
-from kalliope.core.Models.Trigger import Trigger
-from kalliope.core.Models.Player import Player
-from kalliope.core.Models.Tts import Tts
-from kalliope.core.Utils.FileManager import FileManager
+from intelora.core.Models.Resources import Resources
+from intelora.core.Utils.Utils import Utils
+from intelora.core.Models import Singleton
+from intelora.core.Models.RestAPI import RestAPI
+from intelora.core.Models.Settings import Settings
+from intelora.core.Models.Stt import Stt
+from intelora.core.Models.Trigger import Trigger
+from intelora.core.Models.Player import Player
+from intelora.core.Models.Tts import Tts
+from intelora.core.Utils.FileManager import FileManager
 
 FILE_NAME = "settings.yml"
 
 logging.basicConfig()
-logger = logging.getLogger("kalliope")
+logger = logging.getLogger("intelora")
 
 
 class SettingInvalidException(Exception):
@@ -460,7 +460,7 @@ class SettingLoader(with_metaclass(Singleton, object)):
 
         try:
             random_wake_up_sounds_list = settings["random_wake_up_sounds"]
-            # In case files are declared in settings.yml, make sure kalliope can access them.
+            # In case files are declared in settings.yml, make sure intelora can access them.
             for sound in random_wake_up_sounds_list:
                 if Utils.get_real_file_path(sound) is None:
                     raise SettingInvalidException("sound file %s not found" % sound)
@@ -727,7 +727,7 @@ class SettingLoader(with_metaclass(Singleton, object)):
         """
         try:
             on_ready_sounds = settings["on_ready_sounds"]
-            # In case files are declared in settings.yml, make sure kalliope can access them.
+            # In case files are declared in settings.yml, make sure intelora can access them.
             for sound in on_ready_sounds:
                 if Utils.get_real_file_path(sound) is None:
                     raise SettingInvalidException("sound file %s not found" % sound)
@@ -748,7 +748,7 @@ class SettingLoader(with_metaclass(Singleton, object)):
         variables = dict()
         try:
             variables_files_name = settings["var_files"]
-            # In case files are declared in settings.yml, make sure kalliope can access them.
+            # In case files are declared in settings.yml, make sure intelora can access them.
             for files in variables_files_name:
                 var = Utils.get_real_file_path(files)
                 if var is None:

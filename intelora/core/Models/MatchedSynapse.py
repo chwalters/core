@@ -1,6 +1,6 @@
 import copy
 
-from kalliope.core.NeuronParameterLoader import NeuronParameterLoader
+from intelora.core.NeuronParameterLoader import NeuronParameterLoader
 
 
 class MatchedSynapse(object):

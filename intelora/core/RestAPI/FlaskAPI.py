@@ -9,21 +9,21 @@ from flask_cors import CORS
 from flask_restful import abort
 from werkzeug.utils import secure_filename
 
-from kalliope import SignalLauncher
-from kalliope._version import version_str
-from kalliope.core.ConfigurationManager import SettingLoader, BrainLoader
-from kalliope.core.LIFOBuffer import LIFOBuffer
-from kalliope.core.Models.MatchedSynapse import MatchedSynapse
-from kalliope.core.OrderListener import OrderListener
-from kalliope.core.RestAPI.utils import requires_auth
-from kalliope.core.SynapseLauncher import SynapseLauncher
-from kalliope.core.Utils.FileManager import FileManager
-from kalliope.signals.order import Order
+from intelora import SignalLauncher
+from intelora._version import version_str
+from intelora.core.ConfigurationManager import SettingLoader, BrainLoader
+from intelora.core.LIFOBuffer import LIFOBuffer
+from intelora.core.Models.MatchedSynapse import MatchedSynapse
+from intelora.core.OrderListener import OrderListener
+from intelora.core.RestAPI.utils import requires_auth
+from intelora.core.SynapseLauncher import SynapseLauncher
+from intelora.core.Utils.FileManager import FileManager
+from intelora.signals.order import Order
 
 logging.basicConfig()
-logger = logging.getLogger("kalliope")
+logger = logging.getLogger("intelora")
 
-UPLOAD_FOLDER = '/tmp/kalliope/tmp_uploaded_audio'
+UPLOAD_FOLDER = '/tmp/intelora/tmp_uploaded_audio'
 ALLOWED_EXTENSIONS = {'mp3', 'wav'}
 
 
@@ -144,7 +144,7 @@ class FlaskAPI(threading.Thread):
         test with curl:
         curl -i --user admin:secret -X POST  http://127.0.0.1:5000/synapses/start/id/say-hello-fr
 
-        run a synapse without making kalliope speaking
+        run a synapse without making intelora speaking
         curl -i -H "Content-Type: application/json" --user admin:secret -X POST  \
         -d '{"no_voice":"true"}' http://127.0.0.1:5000/synapses/start/id/say-hello-fr
 

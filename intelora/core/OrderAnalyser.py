@@ -3,14 +3,14 @@ import collections
 from collections import Counter
 import six
 
-from kalliope.core.Models.MatchedSynapse import MatchedSynapse
-from kalliope.core.Utils.Utils import Utils
-from kalliope.core.ConfigurationManager import SettingLoader
+from intelora.core.Models.MatchedSynapse import MatchedSynapse
+from intelora.core.Utils.Utils import Utils
+from intelora.core.ConfigurationManager import SettingLoader
 
 import logging
 
 logging.basicConfig()
-logger = logging.getLogger("kalliope")
+logger = logging.getLogger("intelora")
 
 
 class OrderAnalyser:

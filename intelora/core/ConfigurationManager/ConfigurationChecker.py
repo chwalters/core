@@ -2,8 +2,8 @@ import re
 import os
 import imp
 
-from kalliope.core.Utils.Utils import ModuleNotFoundError
-from kalliope.core.ConfigurationManager.SettingLoader import SettingLoader
+from intelora.core.Utils.Utils import ModuleNotFoundError
+from intelora.core.ConfigurationManager.SettingLoader import SettingLoader
 
 
 class InvalidSynapeName(Exception):
@@ -135,7 +135,7 @@ class ConfigurationChecker:
             """
             sl = SettingLoader()
             settings = sl.settings
-            package_name = "kalliope.neurons" + "." + neuron_module_name.lower() + "." + neuron_module_name.lower()
+            package_name = "intelora.neurons" + "." + neuron_module_name.lower() + "." + neuron_module_name.lower()
             if settings.resources.neuron_folder is not None:
                 neuron_resource_path = settings.resources.neuron_folder + \
                                        os.sep + neuron_module_name.lower() + os.sep + \
@@ -174,7 +174,7 @@ class ConfigurationChecker:
             """
             sl = SettingLoader()
             settings = sl.settings
-            package_name = "kalliope.signals" + "." + signal_name.lower() + "." + signal_name.lower()
+            package_name = "intelora.signals" + "." + signal_name.lower() + "." + signal_name.lower()
             if settings.resources.signal_folder is not None:
                 neuron_resource_path = settings.resources.neuron_folder + \
                                        os.sep + signal_name.lower() + os.sep + \

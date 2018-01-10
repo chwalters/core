@@ -1,7 +1,7 @@
 from functools import wraps
 from flask import request, Response
 
-from kalliope.core.ConfigurationManager import SettingLoader
+from intelora.core.ConfigurationManager import SettingLoader
 
 
 def check_auth(username, password):

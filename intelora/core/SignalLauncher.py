@@ -1,10 +1,10 @@
 import logging
 
-from kalliope import Utils
-from kalliope.signals.order import Order
+from intelora import Utils
+from intelora.signals.order import Order
 
 logging.basicConfig()
-logger = logging.getLogger("kalliope")
+logger = logging.getLogger("intelora")
 
 
 class SignalLauncher:

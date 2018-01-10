@@ -1,9 +1,9 @@
 import logging
 
-from kalliope.core import Utils
+from intelora.core import Utils
 
 logging.basicConfig()
-logger = logging.getLogger("kalliope")
+logger = logging.getLogger("intelora")
 
 
 class TriggerLauncher(object):

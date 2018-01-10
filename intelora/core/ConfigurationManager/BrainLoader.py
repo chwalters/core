@@ -4,18 +4,18 @@ import os
 from six import with_metaclass
 import six
 
-from kalliope.core.Models.Signal import Signal
+from intelora.core.Models.Signal import Signal
 from .YAMLLoader import YAMLLoader
-from kalliope.core.Utils import Utils
-from kalliope.core.ConfigurationManager import SettingLoader
-from kalliope.core.ConfigurationManager.ConfigurationChecker import ConfigurationChecker
-from kalliope.core.Models import Singleton
-from kalliope.core.Models.Brain import Brain
-from kalliope.core.Models.Neuron import Neuron
-from kalliope.core.Models.Synapse import Synapse
+from intelora.core.Utils import Utils
+from intelora.core.ConfigurationManager import SettingLoader
+from intelora.core.ConfigurationManager.ConfigurationChecker import ConfigurationChecker
+from intelora.core.Models import Singleton
+from intelora.core.Models.Brain import Brain
+from intelora.core.Models.Neuron import Neuron
+from intelora.core.Models.Synapse import Synapse
 
 logging.basicConfig()
-logger = logging.getLogger("kalliope")
+logger = logging.getLogger("intelora")
 
 FILE_NAME = "brain.yml"
 
@@ -184,9 +184,9 @@ class BrainLoader(with_metaclass(Singleton, object)):
         .. warnings:: Static method and Private
         """
 
-        # get current script directory path. We are in /an/unknown/path/kalliope/core/ConfigurationManager
+        # get current script directory path. We are in /an/unknown/path/intelora/core/ConfigurationManager
         cur_script_directory = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
-        # get parent dir. Now we are in /an/unknown/path/kalliope
+        # get parent dir. Now we are in /an/unknown/path/intelora
         parent_dir = os.path.normpath(cur_script_directory + os.sep + os.pardir + os.sep + os.pardir)
         brain_path = parent_dir + os.sep + "brain.yml"
         logger.debug("Real brain.yml path: %s" % brain_path)
