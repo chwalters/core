@@ -2,8 +2,8 @@ import logging
 import os
 from threading import Thread
 
-from kalliope import Utils
-from kalliope.trigger.snowboy import snowboydecoder
+from intelora import Utils
+from intelora.trigger.snowboy import snowboydecoder
 from cffi import FFI as _FFI
 
 
@@ -15,7 +15,7 @@ class MissingParameterException(Exception):
     pass
 
 logging.basicConfig()
-logger = logging.getLogger("kalliope")
+logger = logging.getLogger("intelora")
 
 
 class Snowboy(Thread):

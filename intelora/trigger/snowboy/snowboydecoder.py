@@ -10,7 +10,7 @@ import os
 import logging
 
 logging.basicConfig()
-logger = logging.getLogger("kalliope")
+logger = logging.getLogger("intelora")
 TOP_DIR = os.path.dirname(os.path.abspath(__file__))
 
 RESOURCE_FILE = os.path.join(TOP_DIR, "resources/common.res")
