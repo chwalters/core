@@ -1,4 +1,7 @@
-﻿[![Build Status](https://travis-ci.org/intelora/core.svg?branch=master)](https://travis-ci.org/intelora/core)
+﻿[![Generic badge](https://img.shields.io/badge/Intelligent Personal Assistant-Platform-GREEN.svg)](https://shields.io/)
+[![Build Status](https://travis-ci.org/intelora/core.svg?branch=master)](https://travis-ci.org/intelora/core)
 [![Maintainability](https://api.codeclimate.com/v1/badges/156f512bb05ff81433dd/maintainability)](https://codeclimate.com/github/intelora/core/maintainability)
 [![PyPI version](https://badge.fury.io/py/intelora.svg)](https://badge.fury.io/py/intelora)
 [![PyPI](https://img.shields.io/pypi/pyversions/intelora.svg)](https://pypi.python.org/pypi/intelora/)
+[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/Naereen/StrapDown.js/blob/master/LICENSE)
+[![GitHub contributors](https://img.shields.io/github/contributors/Naereen/StrapDown.js.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/contributors/)
