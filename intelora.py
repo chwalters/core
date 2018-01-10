@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # coding: utf8
-import kalliope
+import intelora
 
 if __name__ == '__main__':
-    kalliope.main()
+    intelora.main()
