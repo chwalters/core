@@ -2,8 +2,8 @@ import unittest
 
 from mock import mock
 
-from kalliope.core.NeuronModule import MissingParameterException, InvalidParameterException
-from kalliope.neurons.neurotransmitter import Neurotransmitter
+from intelora.core.NeuronModule import MissingParameterException, InvalidParameterException
+from intelora.neurons.neurotransmitter import Neurotransmitter
 
 
 class TestNeurotransmitter(unittest.TestCase):
@@ -98,8 +98,8 @@ class TestNeurotransmitter(unittest.TestCase):
             "default": self.default,
             "from_answer_link": self.from_answer_link
         }
-        with mock.patch("kalliope.core.NeuronModule.get_audio_from_stt") as mock_get_audio_from_stt:
-            with mock.patch("kalliope.core.NeuronModule.run_synapse_by_name") as mock_run_synapse_by_name:
+        with mock.patch("intelora.core.NeuronModule.get_audio_from_stt") as mock_get_audio_from_stt:
+            with mock.patch("intelora.core.NeuronModule.run_synapse_by_name") as mock_run_synapse_by_name:
                 # testing running the default when no order matching
                 nt = Neurotransmitter(**parameters)
                 mock_get_audio_from_stt.assert_called_once()
@@ -131,7 +131,7 @@ class TestNeurotransmitter(unittest.TestCase):
         Testing the init method of the neurontransmitter.
         """
 
-        with mock.patch("kalliope.core.NeuronModule.run_synapse_by_name") as mock_run_synapse_by_name:
+        with mock.patch("intelora.core.NeuronModule.run_synapse_by_name") as mock_run_synapse_by_name:
             # Test direct link
             parameters = {
                 "default": self.default,
@@ -140,7 +140,7 @@ class TestNeurotransmitter(unittest.TestCase):
             Neurotransmitter(**parameters)
             mock_run_synapse_by_name.assert_called_once_with(self.direct_link, high_priority=True)
 
-        with mock.patch("kalliope.core.NeuronModule.get_audio_from_stt") as mock_get_audio_from_stt:
+        with mock.patch("intelora.core.NeuronModule.get_audio_from_stt") as mock_get_audio_from_stt:
             # Test get_audio_from_stt
             parameters = {
                 "default": self.default,

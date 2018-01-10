@@ -1,6 +1,6 @@
 import unittest
 
-from kalliope.neurons.systemdate import Systemdate
+from intelora.neurons.systemdate import Systemdate
 
 
 class TestSystemdate(unittest.TestCase):

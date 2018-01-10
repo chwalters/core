@@ -3,14 +3,14 @@ import unittest
 
 from httpretty import httpretty
 
-from kalliope.core.NeuronModule import InvalidParameterException
-from kalliope.neurons.uri.uri import Uri
+from intelora.core.NeuronModule import InvalidParameterException
+from intelora.neurons.uri.uri import Uri
 
 
 class TestUri(unittest.TestCase):
 
     def setUp(self):
-        self.test_url = "http://kalliope.fr/voices/"
+        self.test_url = "http://intelora.fr/voices/"
 
     def testGet(self):
         expected_content = '{"voice": "nico"}'
@@ -163,7 +163,7 @@ class TestUri(unittest.TestCase):
         parameters = {
             "url": self.test_url,
             "method": "POST",
-            "data_from_file": "kalliope/neurons/uri/tests/data_post_test.json",
+            "data_from_file": "intelora/neurons/uri/tests/data_post_test.json",
             "headers": {
                 "Content-Type": 'application/json'
             }

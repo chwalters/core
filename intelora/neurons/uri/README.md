@@ -112,7 +112,7 @@ A simple call to a deletion. Here we also ask Kalliope to tell use if request wa
             - "{% if status_code==201 %}delete complete{% else %}fail to delete{% endif %}"
 ```
 
-Call to an URL to get a resource and make kalliope speaking out loud a value of returned content.
+Call to an URL to get a resource and make intelora speaking out loud a value of returned content.
 Here, we ask the server to return us the user with ID number 42. We know that the server will return a dict like the following
 ```
 {
@@ -145,7 +145,7 @@ Here is the synapse we would use to make Kalliope speak out loud the name of the
 
 ## Templates example 
 
-The following template will make kalliope read the content of the received json variable "title" from the remote server.
+The following template will make intelora read the content of the received json variable "title" from the remote server.
 ```
 The title is {{ content.title }}
 ```

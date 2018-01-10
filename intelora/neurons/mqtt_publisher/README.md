@@ -18,7 +18,7 @@ This is a core neuron, no installation required.
 | payload      | YES      | string  |          |                     | Message to publish on the topic                                                                  |
 | qos          | NO       | int     | 0        | 0 or 1 or 2         | The quality of service level to use                                                              |
 | retain       | NO       | Boolean | FALSE    | True, False         | if set to True, the message will be set as the “last known good”/retained message for the topic. |
-| client_id    | NO       | string  | kalliope |                     | The MQTT client id to use. If not set, the name will be set to "kalliope"                        |
+| client_id    | NO       | string  | intelora |                     | The MQTT client id to use. If not set, the name will be set to "intelora"                        |
 | keepalive    | NO       | int     | 60       |                     | The keepalive timeout value for the client                                                       |
 | username     | NO       | string  |          |                     | username for authenticating the client                                                           |
 | password     | NO       | string  |          |                     | password for authenticating the client                                                           |

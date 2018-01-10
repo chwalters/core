@@ -2,7 +2,7 @@ import subprocess
 import os
 import threading
 
-from kalliope.core.NeuronModule import NeuronModule, MissingParameterException, InvalidParameterException
+from intelora.core.NeuronModule import NeuronModule, MissingParameterException, InvalidParameterException
 
 
 class AsyncShell(threading.Thread):

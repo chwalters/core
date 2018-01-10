@@ -3,11 +3,11 @@ import sys
 import threading
 import time
 
-from kalliope.core import NeuronModule
-from kalliope.core.NeuronModule import MissingParameterException, InvalidParameterException
+from intelora.core import NeuronModule
+from intelora.core.NeuronModule import MissingParameterException, InvalidParameterException
 
 logging.basicConfig()
-logger = logging.getLogger("kalliope")
+logger = logging.getLogger("intelora")
 
 
 class TimerThread(threading.Thread):

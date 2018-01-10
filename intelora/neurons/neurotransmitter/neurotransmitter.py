@@ -1,9 +1,9 @@
 import logging
 
-from kalliope.core.NeuronModule import NeuronModule, MissingParameterException, InvalidParameterException
+from intelora.core.NeuronModule import NeuronModule, MissingParameterException, InvalidParameterException
 
 logging.basicConfig()
-logger = logging.getLogger("kalliope")
+logger = logging.getLogger("intelora")
 
 
 class Neurotransmitter(NeuronModule):

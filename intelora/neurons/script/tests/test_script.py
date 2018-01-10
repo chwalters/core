@@ -2,8 +2,8 @@ import os
 import time
 import unittest
 
-from kalliope.core.NeuronModule import MissingParameterException, InvalidParameterException
-from kalliope.neurons.script.script import Script
+from intelora.core.NeuronModule import MissingParameterException, InvalidParameterException
+from intelora.neurons.script.script import Script
 
 
 class TestScript(unittest.TestCase):
@@ -11,7 +11,7 @@ class TestScript(unittest.TestCase):
     def setUp(self):
         self.path = "path"
         self.random = "random"
-        self.test_file = "/tmp/kalliope_text_shell.txt"
+        self.test_file = "/tmp/intelora_text_shell.txt"
 
     def testParameters(self):
         def run_test_missing_param(parameters_to_test):
@@ -33,7 +33,7 @@ class TestScript(unittest.TestCase):
         run_test_missing_param(parameters)
 
         # random path
-        self.path = "/tmp/iamarandompath/anotherrandompath/kalliope"
+        self.path = "/tmp/iamarandompath/anotherrandompath/intelora"
         parameters = {
             "path": self.path
         }
@@ -41,11 +41,11 @@ class TestScript(unittest.TestCase):
 
         # Test Non executable file
         # Create the file and remove permissions to the user
-        tmp_path = "/tmp/kalliope/tests/"
+        tmp_path = "/tmp/intelora/tests/"
         tmp_file_path = tmp_path+"neuronScript"
         if not os.path.exists(tmp_path):
             os.makedirs(tmp_path)
-        text_to_write = "[kalliope-test] TestScript - testParameters"
+        text_to_write = "[intelora-test] TestScript - testParameters"
         with open(tmp_file_path, 'w') as myFile:
             myFile.write(text_to_write)
         os.chmod(tmp_file_path, 0o600)
@@ -64,7 +64,7 @@ class TestScript(unittest.TestCase):
         Test we can run a script
         """
         param = {
-            "path": "kalliope/neurons/script/tests/test_script.sh"
+            "path": "intelora/neurons/script/tests/test_script.sh"
         }
 
         Script(**param)
@@ -78,7 +78,7 @@ class TestScript(unittest.TestCase):
         Test we can run a script asynchronously
         """
         param = {
-            "path": "kalliope/neurons/script/tests/test_script.sh",
+            "path": "intelora/neurons/script/tests/test_script.sh",
             "async": True
         }
 
@@ -94,14 +94,14 @@ class TestScript(unittest.TestCase):
         """
         Test we can get a content from the launched script
         """
-        text_to_write = 'kalliope'
+        text_to_write = 'intelora'
         # we write a content into a file
         with open(self.test_file, 'w') as myFile:
             myFile.write(text_to_write)
 
         # get the output with the neuron
         parameters = {
-            "path": "kalliope/neurons/script/tests/test_script_cat.sh",
+            "path": "intelora/neurons/script/tests/test_script_cat.sh",
         }
 
         script = Script(**parameters)

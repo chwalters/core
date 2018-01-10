@@ -6,10 +6,10 @@ from ansible.vars import VariableManager
 from ansible.inventory import Inventory
 from ansible.executor.playbook_executor import PlaybookExecutor
 
-from kalliope.core.NeuronModule import NeuronModule, MissingParameterException
+from intelora.core.NeuronModule import NeuronModule, MissingParameterException
 
 logging.basicConfig()
-logger = logging.getLogger("kalliope")
+logger = logging.getLogger("intelora")
 
 
 class Ansible_playbook(NeuronModule):

@@ -2,7 +2,7 @@
 
 ## Synopsis
 
-Mute control of kalliope. If set to True the trigger process will be stopped.
+Mute control of intelora. If set to True the trigger process will be stopped.
 
 Once this neuron is used, and Kalliope muted, the hotword is deactivated. Only ways to unmute are:
 - by calling the API (see [mute section](../../../Docs/rest_api.md#switch-mute-status))
