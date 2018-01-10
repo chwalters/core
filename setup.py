@@ -20,7 +20,7 @@ def read_version_py(file_name):
         if mo:
             return mo.group(1)
 
-VERSION_PY_FILENAME = 'kalliope/_version.py'
+VERSION_PY_FILENAME = 'intelora/_version.py'
 version = read_version_py(VERSION_PY_FILENAME)
 
 py2_prefix = ''
@@ -89,7 +89,7 @@ setup(
 
     # additional files
     package_data={
-        'kalliope': [
+        'intelora': [
             'brain.yml',
             'settings.yml',
             'trigger/snowboy/armv7l/python27/_snowboydetect.so',
@@ -105,7 +105,7 @@ setup(
     # entry point script
     entry_points={
         'console_scripts': [
-            'intelora=kalliope:main',
+            'intelora=intelora:main',
         ],
     },
 )
