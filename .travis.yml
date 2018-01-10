@@ -27,7 +27,6 @@ install:
 
 # command to run tests
 script:
-
    - python intelora.py start --run-order "hello"
 #  - docker run -it --rm intelora-ubuntu1604
 #  - docker run -it --rm intelora-debian8
