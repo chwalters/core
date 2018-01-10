@@ -3,9 +3,9 @@ from threading import Thread
 from apscheduler.schedulers.background import BackgroundScheduler
 from apscheduler.triggers.cron import CronTrigger
 
-from kalliope.core.ConfigurationManager import BrainLoader
-from kalliope.core.SynapseLauncher import SynapseLauncher
-from kalliope.core import Utils
+from intelora.core.ConfigurationManager import BrainLoader
+from intelora.core.SynapseLauncher import SynapseLauncher
+from intelora.core import Utils
 
 
 class NoEventPeriod(Exception):

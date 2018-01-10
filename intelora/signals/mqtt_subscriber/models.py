@@ -1,7 +1,7 @@
 import logging
 
 logging.basicConfig()
-logger = logging.getLogger("kalliope")
+logger = logging.getLogger("intelora")
 
 
 class Topic(object):
@@ -36,7 +36,7 @@ class Topic(object):
 
 
 class Broker(object):
-    def __init__(self, broker_ip=None, topics=None, port=1883, client_id="kalliope", keepalive=60,
+    def __init__(self, broker_ip=None, topics=None, port=1883, client_id="intelora", keepalive=60,
                  username=None, password=None, protocol="MQTTv311", ca_cert=None, certfile=None, keyfile=None,
                  tls_insecure=False):
         self.broker_ip = broker_ip
@@ -106,7 +106,7 @@ class Broker(object):
         if "client_id" in dict_parameters:
             self.client_id = dict_parameters["client_id"]
         else:
-            self.client_id = "kalliope"
+            self.client_id = "intelora"
 
         if "username" in dict_parameters:
             self.username = dict_parameters["username"]

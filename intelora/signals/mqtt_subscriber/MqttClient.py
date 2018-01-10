@@ -5,10 +5,10 @@ from threading import Thread
 
 import paho
 import paho.mqtt.client as mqtt
-from kalliope.core.SynapseLauncher import SynapseLauncher
+from intelora.core.SynapseLauncher import SynapseLauncher
 
 logging.basicConfig()
-logger = logging.getLogger("kalliope")
+logger = logging.getLogger("intelora")
 
 
 class MqttClient(Thread):
