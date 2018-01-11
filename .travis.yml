@@ -36,9 +36,7 @@ before_script:
 
 # command to run tests
 script:
-   - cd tests/
-   - cd linux/
-   - python intelora.py start --run-order "hello"
+   - python tests/linux/intelora.py start --run-order "hello"
 #  - docker run -it --rm intelora-ubuntu1604
 #  - docker run -it --rm intelora-debian8
 #  - coverage run --source=intelora -m unittest discover
