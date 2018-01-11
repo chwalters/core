@@ -1,11 +1,19 @@
 ---
-  - name: "say-hello-en"
+  - name: "test"
+    signals:
+      - order: "test"
+    neurons:
+      - say:
+          message:
+            - "Test order recognized. Check passed."
+
+  - name: "say-hello"
     signals:
       - order: "hello"
     neurons:
       - say:
           message:
-            - "Hello Human"
+            - "Hello human."
 
   - name: "default-synapse"
     signals:
