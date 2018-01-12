@@ -1,6 +1,6 @@
 [![Generic badge](https://img.shields.io/badge/artificial-intelligence-green.svg)](https://en.wikipedia.org/wiki/Artificial_intelligence)
-[![Generic badge](https://img.shields.io/badge/project-website-green.svg)](https://intelora.github.io/)
-[![Maintenance](https://img.shields.io/badge/maintained-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity)
+[![Generic badge](https://img.shields.io/badge/project-documentation-green.svg)](https://intelora.github.io/)
+[![Maintenance](https://img.shields.io/badge/maintained-yes-green.svg)](https://gitHub.com/intelora/core/graphs/commit-activity)
 [![Maintainability](https://api.codeclimate.com/v1/badges/156f512bb05ff81433dd/maintainability)](https://codeclimate.com/github/intelora/core/maintainability)
 [![Build Status](https://travis-ci.org/intelora/core.svg?branch=master)](https://travis-ci.org/intelora/core)
 [![PyPI version](https://badge.fury.io/py/intelora.svg)](https://badge.fury.io/py/intelora)
