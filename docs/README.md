@@ -1,4 +1,4 @@
-﻿[![Generic badge](https://img.shields.io/badge/Artificial-Intelligence-green.svg)]
+﻿[![Generic badge](https://img.shields.io/badge/Artificial-Intelligence-green.svg)
 [![Generic badge](https://img.shields.io/badge/documentation-website-green.svg)](https://intelora.github.io/)
 [![Maintenance](https://img.shields.io/badge/maintained-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity)
 [![Maintainability](https://api.codeclimate.com/v1/badges/156f512bb05ff81433dd/maintainability)](https://codeclimate.com/github/intelora/core/maintainability)
