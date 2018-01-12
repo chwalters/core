@@ -1,4 +1,4 @@
-[![Generic badge](https://img.shields.io/badge/developme-platform-green.svg)](https://en.wikipedia.org/wiki/Artificial_intelligence)
+[![Generic badge](https://img.shields.io/badge/develop-platform-green.svg)](https://en.wikipedia.org/wiki/Artificial_intelligence)
 [![Generic badge](https://img.shields.io/badge/project-documentation-green.svg)](https://intelora.github.io/)
 [![Maintenance](https://img.shields.io/badge/maintained-yes-green.svg)](https://gitHub.com/intelora/core/graphs/commit-activity)
 [![Maintainability](https://api.codeclimate.com/v1/badges/156f512bb05ff81433dd/maintainability)](https://codeclimate.com/github/intelora/core/maintainability)
