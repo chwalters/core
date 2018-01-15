@@ -73,4 +73,4 @@ If the syntax is NOT ok, Intelora will raise an error and log a message:
 
 ### Note
 
-/!\ this feature is supported by the [Intelora official smartphone application.](https://github.com/intelora-project/intelora-app)
+/!\ this feature is supported by the [Intelora official smartphone application.](https://github.com/intelora/android)

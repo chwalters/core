@@ -8,7 +8,7 @@ logging.basicConfig()
 logger = logging.getLogger("intelora")
 
 # TODO : voicerss lib dependancies are not working as expected in python3
-# CF: git : https://github.com/intelora-project/intelora/pull/397
+# CF: git : https://github.com/intelora/core/
 # TODO : remove this check, when fixed :
 # https://bitbucket.org/daycoder/cachingutil/pull-requests/1/fix-python3-packages-paths/diff
 if sys.version_info[0] == 3:
@@ -71,7 +71,7 @@ class Voicerss(TTSModule):
             ssl=self.ssl)
 
         # TODO : voicerss lib dependancies are not working as expected in python3
-        # CF: git : https://github.com/intelora-project/intelora/pull/397
+        # CF: git : https://github.com/intelora/core/
         # TODO : remove this check, when fixed :
         # https://bitbucket.org/daycoder/cachingutil/pull-requests/1/fix-python3-packages-paths/diff
         if sys.version_info[0] < 3:
