@@ -36,7 +36,7 @@ class Cmusphinx(SpeechRecognition):
                                                          language=self.language,
                                                          keyword_entries=self.keyword_entries,
                                                          grammar=self.grammar_file)
-            Utils.print_success("Sphinx Speech Recognition thinks you said \"%s\"" % captured_audio)
+            Utils.print_success("Sphinx Speech Recognition thinks you said %s" % captured_audio)
             self._analyse_audio(captured_audio)
 
         except sr.UnknownValueError:

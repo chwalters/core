@@ -60,7 +60,7 @@ speech_to_text:
 # This is the default TTS that will be used by Kalliope to talk.
 default_text_to_speech: "pico2wave"
 # where we store generated audio files from TTS engine to reuse them
-cache_path: "/tmp/kalliope_tts_cache"
+cache_path: "/tmp/intelora_tts_cache"
 
 # Text to Speech engines configuration
 # Available engine are:

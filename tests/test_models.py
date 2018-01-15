@@ -56,7 +56,7 @@ class TestModels(unittest.TestCase):
         # this brain is the same as the first one
         self.brain_test3 = Brain(synapses=self.all_synapse_list1)
 
-        self.settings_test = Settings(default_synapse="Synapse3")
+        self.settings_test = Settings()
 
         # clean the LiFO
         LIFOBuffer.lifo_list = list()
@@ -99,17 +99,17 @@ class TestModels(unittest.TestCase):
     def test_Dna(self):
         # create DNA object
         dna1 = Dna(name="dna1", module_type="neuron", author="intelora",
-                   intelora_supported_version="1.0.0", tags="test")
+                   intelora_supported_version="0.4.4", tags="test")
 
         dna2 = Dna(name="dna2", module_type="neuron", author="community",
-                   intelora_supported_version="1.0.0", tags="other")
+                   intelora_supported_version="0.4.2", tags="other")
 
         # this dna is exactly the same as the first one
         dna3 = Dna(name="dna1", module_type="neuron", author="intelora",
-                   intelora_supported_version="1.0.0", tags="test")
+                   intelora_supported_version="0.4.4", tags="test")
 
         expected_result_serialize = {
-            'intelora_supported_version': '1.0.0',
+            'intelora_supported_version': '0.4.4',
             'tags': 'test',
             'type': 'neuron',
             'name': 'dna1',
@@ -252,19 +252,14 @@ class TestModels(unittest.TestCase):
                                 default_player_name="mplayer",
                                 ttss=["ttts"],
                                 stts=["stts"],
-                                random_wake_up_answers=["yes"],
-                                random_wake_up_sounds=None,
-                                play_on_ready_notification=False,
-                                on_ready_answers=None,
-                                on_ready_sounds=None,
                                 triggers=["snowboy"],
                                 players=["mplayer"],
                                 rest_api=rest_api1,
                                 cache_path="/tmp/intelora",
-                                default_synapse="default_synapse",
                                 resources=None,
                                 variables={"key1": "val1"},
-                                recognition_options=recognition_options)
+                                recognition_options=recognition_options,
+                                start_options={'muted': False})
             setting1.intelora_version = "0.4.5"
 
             setting2 = Settings(default_tts_name="accapela",
@@ -273,18 +268,13 @@ class TestModels(unittest.TestCase):
                                 default_player_name="mplayer",
                                 ttss=["ttts"],
                                 stts=["stts"],
-                                random_wake_up_answers=["no"],
-                                random_wake_up_sounds=None,
-                                play_on_ready_notification=False,
-                                on_ready_answers=None,
-                                on_ready_sounds=None,
                                 triggers=["snowboy"],
                                 rest_api=rest_api1,
                                 cache_path="/tmp/intelora_tmp",
-                                default_synapse="my_default_synapse",
                                 resources=None,
                                 variables={"key1": "val1"},
-                                recognition_options=recognition_options)
+                                recognition_options=recognition_options,
+                                start_options={'muted': False})
             setting2.intelora_version = "0.4.5"
 
             setting3 = Settings(default_tts_name="pico2wav",
@@ -293,24 +283,19 @@ class TestModels(unittest.TestCase):
                                 default_player_name="mplayer",
                                 ttss=["ttts"],
                                 stts=["stts"],
-                                random_wake_up_answers=["yes"],
-                                random_wake_up_sounds=None,
-                                play_on_ready_notification=False,
-                                on_ready_answers=None,
-                                on_ready_sounds=None,
                                 triggers=["snowboy"],
                                 players=["mplayer"],
                                 rest_api=rest_api1,
                                 cache_path="/tmp/intelora",
-                                default_synapse="default_synapse",
                                 resources=None,
                                 variables={"key1": "val1"},
-                                recognition_options=recognition_options)
+                                recognition_options=recognition_options,
+                                start_options={'muted': False})
             setting3.intelora_version = "0.4.5"
 
             expected_result_serialize = {
-                'default_synapse': 'default_synapse',
                 'default_tts_name': 'pico2wav',
+                'hooks': None,
                 'rest_api':
                     {
                         'password_protected': True,
@@ -320,27 +305,23 @@ class TestModels(unittest.TestCase):
                         'password': 'password',
                         'login': 'admin'
                     },
-                'play_on_ready_notification': False,
                 'default_stt_name': 'google',
                 'intelora_version': '0.4.5',
-                'random_wake_up_sounds': None,
-                'on_ready_answers': None,
                 'default_trigger_name': 'swoyboy',
                 'default_player_name': 'mplayer',
                 'cache_path': '/tmp/intelora',
                 'stts': ['stts'],
                 'machine': 'pumpkins',
-                'random_wake_up_answers': ['yes'],
-                'on_ready_sounds': None,
                 'ttss': ['ttts'],
                 'variables': {'key1': 'val1'},
                 'resources': None,
                 'triggers': ['snowboy'],
-                'rpi_settings': None,
                 'players': ['mplayer'],
-                'recognition_options': {'energy_threshold': 4000, 'adjust_for_ambient_noise_second': 0}
+                'recognition_options': {'energy_threshold': 4000, 'adjust_for_ambient_noise_second': 0},
+                'start_options': {'muted': False}
             }
 
+            self.maxDiff = None
             self.assertDictEqual(expected_result_serialize, setting1.serialize())
 
             self.assertTrue(setting1.__eq__(setting3))

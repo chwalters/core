@@ -1,10 +1,10 @@
 ---
   name: "neuron_test"
   type: "non existing"
-  author: "Alexander Paul P. Quinit"
+  author: "Intelora project team"
 
   intelora_supported_version:
-    - 1.0
+    - 0.4
 
   tags:
     - "test"
