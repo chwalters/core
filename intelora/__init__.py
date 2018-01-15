@@ -6,12 +6,12 @@ import logging
 import time
 
 from random import *
+
 from intelora.core import ShellGui
 from intelora.core import Utils
 from intelora.core.ConfigurationManager import SettingLoader
 from intelora.core.ConfigurationManager.BrainLoader import BrainLoader
 from intelora.core.SignalLauncher import SignalLauncher
-from intelora.core.Utils.RpiUtils import RpiUtils
 from flask import Flask
 from intelora.core.RestAPI.FlaskAPI import FlaskAPI
 
@@ -29,7 +29,7 @@ logger = logging.getLogger("intelora")
 
 def signal_handler(signal, frame):
     """
-    Press Ctrl+C to terminate Intelora
+    Press Ctrl+C to stop Intelora
 
     :param signal: signal handler
     :param frame: execution frame
@@ -64,6 +64,7 @@ def parse_args(args):
     parser.add_argument("--tts-name", help="TTS name to uninstall")
     parser.add_argument("--trigger-name", help="Trigger name to uninstall")
     parser.add_argument("--signal-name", help="Signal name to uninstall")
+    parser.add_argument("--muted", action='store_true', help="Starts Intelora muted")
     parser.add_argument('-v', '--version', action='version',
                         version='Intelora ' + version_str)
 
@@ -156,6 +157,10 @@ def main():
                                                             is_api_call=False)
 
         if (parser.run_synapse is None) and (parser.run_order is None):
+            # if --muted
+            if parser.muted:
+                settings.start_options['muted'] = True
+
             # start rest api
             start_rest_api(settings, brain)
             start_intelora(settings, brain)
@@ -275,21 +280,15 @@ def start_intelora(settings, brain):
     list_signals_class_to_load = get_list_signal_class_to_load(brain)
 
     # start each class name
-    try:
-        for signal_class_name in list_signals_class_to_load:
-            signal_instance = SignalLauncher.launch_signal_class_by_name(signal_name=signal_class_name,
-                                                                         settings=settings)
-            if signal_instance is not None:
-                signal_instance.daemon = True
-                signal_instance.start()
 
-        while True:  # keep main thread alive
-            time.sleep(0.1)
+    for signal_class_name in list_signals_class_to_load:
+        signal_instance = SignalLauncher.launch_signal_class_by_name(signal_name=signal_class_name,
+                                                                     settings=settings)
+        if signal_instance is not None:
+            signal_instance.daemon = True
+            signal_instance.start()
 
-    except (KeyboardInterrupt, SystemExit):
-        # we need to switch GPIO pin to default status if we are using a Rpi
-        if settings.rpi_settings:
-            Utils.print_info("GPIO cleaned")
-            logger.debug("Clean GPIO")
-            import RPi.GPIO as GPIO
-            GPIO.cleanup()
+    while True:  # keep main thread alive
+        time.sleep(0.1)
+
+

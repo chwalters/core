@@ -40,7 +40,7 @@ class Apiai(SpeechRecognition):
                                                       language=self.language,
                                                       session_id=self.session_id,
                                                       show_all=self.show_all)
-            Utils.print_success("Api.ai Speech Recognition thinks you said \"%s\"" % captured_audio)
+            Utils.print_success("Apiai Speech Recognition thinks you said %s" % captured_audio)
             self._analyse_audio(captured_audio)
 
         except sr.UnknownValueError as e:

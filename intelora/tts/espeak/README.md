@@ -4,10 +4,6 @@
 
 This TTS is based on the eSpeak engine
 
-## Installation
-
-    intelora install --git-url "https://github.com/apquinit/eSpeak.git"
-
 ## Options
 
 | Parameters | Required | Default         | Choices                | Comment                                                                                       |

@@ -16,10 +16,10 @@ class TestBrainLoader(unittest.TestCase):
     def setUp(self):
         # be sure the brain haven't been instantiated before
         Singleton._instances = dict()
-        if "/tests" in os.getcwd():
+        if "/Tests" in os.getcwd():
             self.brain_to_test = os.getcwd() + os.sep + "brains/brain_test.yml"
         else:
-            self.brain_to_test = os.getcwd() + os.sep + "tests/brains/brain_test.yml"
+            self.brain_to_test = os.getcwd() + os.sep + "Tests/brains/brain_test.yml"
 
         self.expected_result = [
             {'signals': [{'order': 'test_order'}],
@@ -47,7 +47,7 @@ class TestBrainLoader(unittest.TestCase):
         brain_loader = BrainLoader(file_path=self.brain_to_test)
         self.assertEqual(brain_loader.yaml_config, self.expected_result)
 
-    def test_get_brain(self):
+    def test_load_brain(self):
         """
         Test the class return a valid brain object
         """

@@ -81,17 +81,15 @@ setup(
         'sounddevice>=0.3.7',
         'SoundFile>=0.9.0',
         'pyalsaaudio>=0.8.4',
-        'RPi.GPIO>=0.6.3',
         'sox>=1.3.0',
-        'paho-mqtt>=1.3.0'
+        'paho-mqtt>=1.3.0',
+        'voicerss_tts>=1.0.3'
     ],
 
 
     # additional files
     package_data={
         'intelora': [
-            'brain.yml',
-            'settings.yml',
             'trigger/snowboy/armv7l/python27/_snowboydetect.so',
             'trigger/snowboy/x86_64/python27/_snowboydetect.so',
             'trigger/snowboy/x86_64/python34/_snowboydetect.so',
