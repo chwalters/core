@@ -22,9 +22,9 @@ install:
 script:
    - python setup.py install
    - cd tests/brains/
+   - intelora start --run-order "test"
    - intelora start --run-order "hello"
    - intelora start --run-order "hi"
-   - intelora start --run-order "test"
 
 after_success:
   coveralls
