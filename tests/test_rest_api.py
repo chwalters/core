@@ -28,12 +28,12 @@ class TestRestAPI(LiveServerTestCase):
         # be sure that the singleton haven't been loaded before
         Singleton._instances = {}
         current_path = os.getcwd()
-        if "/Tests" in os.getcwd():
+        if "/tests" in os.getcwd():
             full_path_brain_to_test = current_path + os.sep + "brains/brain_test_api.yml"
             self.audio_file = "files/bonjour.wav"
         else:
-            full_path_brain_to_test = current_path + os.sep + "Tests/brains/brain_test_api.yml"
-            self.audio_file = "Tests/files/bonjour.wav"
+            full_path_brain_to_test = current_path + os.sep + "tests/brains/brain_test_api.yml"
+            self.audio_file = "tests/files/bonjour.wav"
 
         # rest api config
         sl = SettingLoader()

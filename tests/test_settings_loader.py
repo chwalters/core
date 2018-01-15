@@ -24,7 +24,7 @@ class TestSettingLoader(unittest.TestCase):
         # get parent dir. Now we are in /an/unknown/path/intelora
         root_dir = os.path.normpath(cur_script_directory + os.sep + os.pardir)
 
-        self.settings_file_to_test = root_dir + os.sep + "Tests/settings/settings_test.yml"
+        self.settings_file_to_test = root_dir + os.sep + "tests/settings/settings_test.yml"
 
         self.settings_dict = {
             'rest_api':
@@ -50,7 +50,7 @@ class TestSettingLoader(unittest.TestCase):
                 {'pico2wave': {'cache': True, 'language': 'fr-FR'}},
                 {'voxygen': {'voice': 'Agnes', 'cache': True}}
                 ],
-            'var_files': ["../Tests/settings/variables.yml"],
+            'var_files': ["../tests/settings/variables.yml"],
             'start_options': {'muted': True},
             'hooks': {'on_waiting_for_trigger': 'test',
                       'on_stop_listening': None,

@@ -17,10 +17,10 @@ class TestLIFOBuffer(unittest.TestCase):
         # be sure the brain haven't been instantiated before
         Singleton._instances = dict()
 
-        if "/Tests" in os.getcwd():
+        if "/tests" in os.getcwd():
             self.brain_to_test = os.getcwd() + os.sep + "brains/lifo_buffer_test_brain.yml"
         else:
-            self.brain_to_test = os.getcwd() + os.sep + "Tests/brains/lifo_buffer_test_brain.yml"
+            self.brain_to_test = os.getcwd() + os.sep + "tests/brains/lifo_buffer_test_brain.yml"
 
         BrainLoader(file_path=self.brain_to_test)
         # create a new lifo buffer

@@ -16,10 +16,10 @@ class TestBrainLoader(unittest.TestCase):
     def setUp(self):
         # be sure the brain haven't been instantiated before
         Singleton._instances = dict()
-        if "/Tests" in os.getcwd():
+        if "/tests" in os.getcwd():
             self.brain_to_test = os.getcwd() + os.sep + "brains/brain_test.yml"
         else:
-            self.brain_to_test = os.getcwd() + os.sep + "Tests/brains/brain_test.yml"
+            self.brain_to_test = os.getcwd() + os.sep + "tests/brains/brain_test.yml"
 
         self.expected_result = [
             {'signals': [{'order': 'test_order'}],

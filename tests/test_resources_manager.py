@@ -94,29 +94,29 @@ class TestResourcesmanager(unittest.TestCase):
 
     def test_is_repo_ok(self):
         # valid repo
-        if "/Tests" in os.getcwd():
+        if "/tests" in os.getcwd():
             dna_file_path = "modules/dna.yml"
             install_file_path = "modules/install.yml"
         else:
-            dna_file_path = "Tests/modules/dna.yml"
-            install_file_path = "Tests/modules/install.yml"
+            dna_file_path = "tests/modules/dna.yml"
+            install_file_path = "tests/modules/install.yml"
         self.assertTrue(ResourcesManager.is_repo_ok(dna_file_path=dna_file_path, install_file_path=install_file_path))
 
         # missing dna
-        if "/Tests" in os.getcwd():
+        if "/tests" in os.getcwd():
             dna_file_path = ""
             install_file_path = "modules/install.yml"
         else:
             dna_file_path = "T"
-            install_file_path = "Tests/modules/install.yml"
+            install_file_path = "tests/modules/install.yml"
         self.assertFalse(ResourcesManager.is_repo_ok(dna_file_path=dna_file_path, install_file_path=install_file_path))
 
         # missing install
-        if "/Tests" in os.getcwd():
+        if "/tests" in os.getcwd():
             dna_file_path = "modules/dna.yml"
             install_file_path = ""
         else:
-            dna_file_path = "Tests/modules/dna.yml"
+            dna_file_path = "tests/modules/dna.yml"
             install_file_path = ""
         self.assertFalse(ResourcesManager.is_repo_ok(dna_file_path=dna_file_path, install_file_path=install_file_path))
 

@@ -26,7 +26,7 @@ class TestInit(unittest.TestCase):
         # get parent dir. Now we are in /an/unknown/path/intelora
         root_dir = os.path.normpath(cur_script_directory + os.sep + os.pardir)
 
-        self.settings_file_to_test = root_dir + os.sep + "Tests/settings/settings_test.yml"
+        self.settings_file_to_test = root_dir + os.sep + "tests/settings/settings_test.yml"
         self.settings = SettingLoader(file_path=self.settings_file_to_test)
 
     def tearDown(self):
