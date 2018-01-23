@@ -31,6 +31,7 @@ setup(
     name='intelora',
     version=version,
     description='An Open Source Intelligent Personal Assistant Development Platform',
+    long_description='Intelora is an open source intelligent personal assistant development platform that uses natural language processing and machine learning to provide developers the suite and tools for building and configuring their own voice assistant.',
     url='https://github.com/intelora',
     author='Alexander Paul P. Quinit',
     author_email='paulquinit@gmail.com',
@@ -52,7 +53,7 @@ setup(
     keywords='assistant bot TTS STT platform intelora',
 
     # included packages
-    packages=find_packages(exclude=['contrib', 'docs', 'tests']),
+    packages=find_packages(exclude=['docs', 'tests']),
 
     # required libs
     install_requires=[
