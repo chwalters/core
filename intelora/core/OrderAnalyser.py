@@ -80,7 +80,8 @@ class OrderAnalyser:
                                              expected_order_type=expected_matching_type):
                         # the order match the synapse, we add it to the returned list
                         logger.debug("Order found! Run synapse name: %s" % synapse.name)
-                        Utils.print_success("Order matched in the brain. Running synapse \"%s\"" % synapse.name)
+                        Utils.print_success("Order matched in the brain)
+                        Utils.print_success("Running synapse \"%s\"" % synapse.name)
                         list_match_synapse.append(synapse_order_tuple(synapse=synapse, order=signal_order))
 
         # create a list of MatchedSynapse from the tuple list
